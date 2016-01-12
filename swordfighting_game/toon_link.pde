@@ -6,7 +6,7 @@ class Link { //declare new class for toon link
   Link () {
     imageMode(CENTER); 
     l = loadImage("link.png"); 
-    loc = new PVector (300, 500);
+    loc = new PVector (300, 600);
   }
 
   void display () { //display function
