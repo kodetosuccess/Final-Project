@@ -1,6 +1,7 @@
 class Link { //declare new class for toon link
   PVector loc, linkforward, linkbackward; 
   PImage l, j; 
+  boolean t; 
 
 
   Link () {
@@ -11,7 +12,12 @@ class Link { //declare new class for toon link
   }
 
   void display () { //display function
-    image(l, loc.x, loc.y); //draw image
+    if (t == false) {
+      image(l, loc.x, loc.y); //draw image
+    }
+    if (t == true) {
+      image (j, loc.x, loc.y);
+    }
   }
   void linkbackward () { //move link backward
     loc.x -= 10;
@@ -20,7 +26,7 @@ class Link { //declare new class for toon link
     loc.x += 10; //
   }
   void linkjump() {
-    image (j, loc.x, loc.y); //link is jumping
+    //link is jumping
     loc.y -= 20;
   }
 } 
