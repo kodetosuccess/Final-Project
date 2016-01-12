@@ -18,7 +18,13 @@ void draw () {
 }
 
 void keyPressed () {
-  if (keyCode == 'd') { //if "a" key is pressed
+  if (keyCode == 'D') { //if "a" key is pressed
     l.linkforward(); //link moves backwards
+  }
+  if (keyCode == 'A') {
+    l.linkbackward();
+  }
+  if (keyCode == 'W') {
+    l.linkjump ();
   }
 }

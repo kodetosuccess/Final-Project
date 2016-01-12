@@ -1,11 +1,12 @@
 class Link { //declare new class for toon link
   PVector loc, linkforward, linkbackward; 
-  PImage l; 
+  PImage l, j; 
 
 
   Link () {
     imageMode(CENTER); 
     l = loadImage("link.png"); 
+    j = loadImage("linkjump.png"); 
     loc = new PVector (300, 600);
   }
 
@@ -19,5 +20,7 @@ class Link { //declare new class for toon link
     loc.x += 10; //
   }
   void linkjump() {
+    image (j, loc.x, loc.y); //link is jumping
+    loc.y -= 20;
   }
 } 
