@@ -22,6 +22,7 @@ void draw () {
   s.display(); //display shadow
   //h.display(); //display health
   s.move(); //move shadow around to follow link
+  s.health();
 }
 
 void keyPressed () {
