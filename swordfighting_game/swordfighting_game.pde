@@ -2,6 +2,7 @@
 
 Link l; 
 Shadow s; 
+Heart h; 
 PImage forest; 
 
 void setup () {
@@ -10,6 +11,7 @@ void setup () {
   l = new Link();
   s = new Shadow(); 
   forest = loadImage ("forest.jpg");
+  h = new Heart();
 }
 
 
@@ -18,6 +20,7 @@ void draw () {
   image (forest, width/2, height/2); //draw bg
   l.display(); //display link
   s.display(); //display shadow
+  h.display(); //display health
 }
 
 void keyPressed () {
@@ -28,7 +31,11 @@ void keyPressed () {
     l.linkbackward(); //link moves backwards
   }
   if (keyCode == 'W') { //if W is pressed
-    l.t = true; 
-    l.linkjump ();
+    l.t = true; //l.t (boolean that controls which link img is displayed) is true
+    l.linkjump(); //link jumps up
+  }
+  if (keyCode == 'S') { // if S is pressed
+    l.t = false; 
+    l.linkdown(); //link moves down
   }
 }

@@ -12,21 +12,32 @@ class Link { //declare new class for toon link
   }
 
   void display () { //display function
-    if (t == false) {
-      image(l, loc.x, loc.y); //draw image
+    if (t == false) { //if t is flase
+      image(l, loc.x, loc.y); //draw image link
     }
-    if (t == true) {
-      image (j, loc.x, loc.y);
+    if (t == true) { //if t is true
+      image (j, loc.x, loc.y); //jumping link img
     }
   }
   void linkbackward () { //move link backward
     loc.x -= 10;
   }
   void linkforward() { //move link forward
-    loc.x += 10; //
+    loc.x += 10;
   }
-  void linkjump() {
-    //link is jumping
-    loc.y -= 20;
+  void linkjump() { //link is jumping
+    loc.y -= 20; //move link up
+  }
+
+  void linkdown () {
+    loc.y += 20; //moves link down
+  }
+
+  boolean hurtShadow (Shadow s) { //to hurt shadow
+    if (loc.dist(s.loc) <= loc.x/2 + s.loc.x/2) {
+      return true; //then return true
+    } else { //otherwise
+      return false;
+    }
   }
 } 
