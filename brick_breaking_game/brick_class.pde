@@ -1,18 +1,23 @@
 class Brick {
-   
-   Brick(float a, float b) {
+  PImage brick;
+  PVector loc;
+
+
+  Brick(float a, float b) {
     loc = new PVector(a, b);
+    brick = loadImage("brick.jpg");
   }
-  
-  
+
+
   boolean Disappears(PVector z) {
-    if (loc.dist(z) < ) {
+    if (loc.dist(z) < 30) {
       return true;
     } else {
       return false;
     }
   }
-  
+
   void display () {
-    rect(0, 0, 120, 100);
+    image(brick, 120, 100);    //display brick image
   }
+}
