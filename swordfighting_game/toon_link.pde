@@ -2,6 +2,7 @@ class Link { //declare new class for toon link
   PVector loc, linkforward, linkbackward; 
   PImage l, j; 
   boolean t; 
+  int w; 
 
 
   Link () {
@@ -9,6 +10,7 @@ class Link { //declare new class for toon link
     l = loadImage("link.png"); 
     j = loadImage("linkjump.png"); 
     loc = new PVector (300, 600);
+    w= 200;
   }
 
   void display () { //display function
@@ -39,5 +41,12 @@ class Link { //declare new class for toon link
     } else { //otherwise
       return false;
     }
+  }
+
+
+  void health () {
+    strokeWeight(8); 
+    fill(59, 237, 0); 
+    rect(150, 100, w, 10);
   }
 } 
