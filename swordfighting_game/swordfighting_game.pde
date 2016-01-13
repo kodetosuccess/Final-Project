@@ -2,7 +2,7 @@
 
 Link l; 
 Shadow s; 
-Heart h; 
+//Heart h; 
 PImage forest; 
 
 void setup () {
@@ -11,7 +11,7 @@ void setup () {
   l = new Link();
   s = new Shadow(); 
   forest = loadImage ("forest.jpg");
-  h = new Heart();
+  //h = new Heart();
 }
 
 
@@ -20,7 +20,7 @@ void draw () {
   image (forest, width/2, height/2); //draw bg
   l.display(); //display link
   s.display(); //display shadow
-  h.display(); //display health
+  //h.display(); //display health
   s.move(); //move shadow around to follow link
 }
 
