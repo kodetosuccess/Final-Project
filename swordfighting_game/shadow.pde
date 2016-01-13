@@ -25,7 +25,7 @@ class Shadow { //declare new class for shadow
   }
 
   void health () {
-    strokeWeight(8); 
+    strokeWeight(6); 
     fill(59, 237, 0); 
     rect(850, 100, w, 10);
   }

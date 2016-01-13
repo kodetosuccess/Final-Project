@@ -45,7 +45,7 @@ class Link { //declare new class for toon link
 
 
   void health () {
-    strokeWeight(8); 
+    strokeWeight(6); 
     fill(59, 237, 0); 
     rect(150, 100, w, 10);
   }
