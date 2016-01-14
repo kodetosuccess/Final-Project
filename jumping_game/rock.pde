@@ -1,10 +1,14 @@
-class Rock{
+class Rock {
   PImage rock;
-  
-  Rock(){
+  PVector loc;
+
+
+  Rock(float x, float y) {
+
     rock = loadImage("rock.png");
+    loc = new PVector(x,y);
   }
-  void display(){
-    image(rock,width/20,height/4*3,100,80);
+  void display() {
+    image(rock, loc.x, loc.y, 100, 80);
   }
 }
