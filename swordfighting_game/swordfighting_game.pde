@@ -16,12 +16,12 @@ void setup () {
 
 
 void draw () {
-
+  println(s.loc.x - l.loc.x); 
   image (forest, width/2, height/2); //draw bg
   l.display(); //display link
   s.display(); //display shadow
   //h.display(); //display health
-  s.move(); //move shadow around to follow link
+
   s.health(); //health bars for shadow and link
   l.health();
   if (l.isincontactwith(s) ) {

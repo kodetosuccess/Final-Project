@@ -24,10 +24,10 @@ class Link { //declare new class for toon link
     }
   }
   void linkbackward () { //move link backward
-    loc.x -= 10;
+    loc.x -= 20;
   }
   void linkforward() { //move link forward
-    loc.x += 10;
+    loc.x += 50;
   }
   void linkjump() { //link is jumping
     loc.y -= 20; //move link up
@@ -38,7 +38,7 @@ class Link { //declare new class for toon link
   }
 
   boolean isincontactwith (Shadow s) { //to hurt shadow
-    if (loc.dist(s.loc) <= loc.x/2 + s.loc.x/2) {
+    if (loc.dist(s.loc) <= loc.x/4 + s.loc.x/4) {
       return true; //then return true
     } else { //otherwise
       return false;
@@ -50,12 +50,5 @@ class Link { //declare new class for toon link
     strokeWeight(6); 
     fill(c); 
     rect(150, 100, w, 10); //draw health bar
-  }
-
-  void hurthealth() { //decrease link's health bar
-    w -= 10; //decrease health by 10
-    if (w <= 50) { //if health is < 10
-      c = color (255, 34, 0); //health bar tunrs red
-    }
   }
 }
