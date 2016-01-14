@@ -24,12 +24,12 @@ void draw () {
 
   s.health(); //health bars for shadow and link
   l.health();
-  if (l.isincontactwith(s) ) {
-    s.decreasehealth();
+  if (l.isincontactwith(s) ) { //if link touches shadow
+    s.decreasehealth(); //shadow's health decreases
   }
 
-  if (s.isincontactwith(l)) {
-    l.decreasehealth();
+  if (s.isincontactwith(l)) { //if shadow touches link
+    l.decreasehealth(); //link's health decreases
   }
 }
 
