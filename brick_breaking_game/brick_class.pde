@@ -9,8 +9,8 @@ class Brick {
   }
 
 
-  boolean Disappears(PVector z) {
-    if (loc.dist(z) < 30) {
+  boolean Disappears(Cannonball c) {
+    if (loc.dist(c.loc) < 30) {
       return true;
     } else {
       return false;
@@ -18,6 +18,7 @@ class Brick {
   }
 
   void display () {
-    image(brick, 120, 100);    //display brick image
+    image(brick, loc.x, loc.y);    //display brick image
   }
+  
 }

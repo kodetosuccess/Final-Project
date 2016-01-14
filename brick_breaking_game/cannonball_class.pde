@@ -1,11 +1,11 @@
 class Cannonball {
-  PVector loc, vel;
+  PVector loc, vel;  //declare PVector for location and velocity of the cannonball
   PImage cnnball;
 
 
   Cannonball() {
-    loc = new PVector();
-    vel = new PVector(0, 4);
+    loc = new PVector(width/2, height-300);
+    vel = new PVector(4, 4);    //set velocity of cannonball b/w 0 and 4
     cnnball = loadImage("cannonball.png");
   }
 
@@ -15,20 +15,16 @@ class Cannonball {
 
 
   void display () {
+    image(cnnball, loc.x, loc.y);    //display the cannonball
   }
 
-  void update () {
-    loc.set(loc.x, loc.y);
-    vel.y = -vel.y;
-  }
 
-  boolean Touches(PVector y) {
-    if (loc.dist(y) < 10) {
+
+  boolean Touches(Cannon C1) {
+    if (loc.dist(C1.loc) < 10) {
       return true;
     } else {
       return false;
     }
   }
-  
-
 }
