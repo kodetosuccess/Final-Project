@@ -27,10 +27,6 @@ void draw () {
   if (l.isincontactwith(s) ) { //if link touches shadow
     s.decreasehealth(); //shadow's health decreases
   }
-
-  if (s.isincontactwith(l)) { //if shadow touches link
-    l.decreasehealth(); //link's health decreases
-  }
 }
 
 void keyPressed () {
