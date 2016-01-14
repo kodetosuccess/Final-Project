@@ -25,7 +25,7 @@ void draw () {
   s.health(); //health bars for shadow and link
   l.health();
   if (l.isincontactwith(s) ) {
-    s.hurthealth();
+    s.decreasehealth();
   }
 }
 

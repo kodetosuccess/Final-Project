@@ -37,13 +37,13 @@ class Shadow { //declare new class for shadow
   void health () { //health bar at top for shadow
     strokeWeight(8); 
     fill(214, 214, 214); 
-    rect(846, 96, 205, 15);
+    rect(846, 96, 206, 16);
     strokeWeight(0); 
     fill(c); 
     rect(850, 100, w, 10); //health points
   }
 
-  void hurthealth() { //decrease health
+  void decreasehealth() { //decrease health
     w -= 2; //decrease by 10
     if (w <= 100) { //if health is < 10
       c = color (255, 34, 0); //health bar tunrs red
