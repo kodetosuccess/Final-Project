@@ -2,7 +2,8 @@ class Link { //declare new class for toon link
   PVector loc, linkforward, linkbackward; 
   PImage l, j; 
   boolean t; 
-  int w; 
+  int w; //for health bar
+  color c; //color for health bar
 
 
   Link () {
@@ -11,6 +12,7 @@ class Link { //declare new class for toon link
     j = loadImage("linkjump.png"); 
     loc = new PVector (300, 600);
     w= 200;
+    c = color (59, 237, 0);
   }
 
   void display () { //display function
@@ -35,7 +37,7 @@ class Link { //declare new class for toon link
     loc.y += 20; //moves link down
   }
 
-  boolean hurtShadow (Shadow s) { //to hurt shadow
+  boolean isincontactwith (Shadow s) { //to hurt shadow
     if (loc.dist(s.loc) <= loc.x/2 + s.loc.x/2) {
       return true; //then return true
     } else { //otherwise
@@ -44,9 +46,16 @@ class Link { //declare new class for toon link
   }
 
 
-  void health () {
+  void health () { //health bar at top for link
     strokeWeight(6); 
-    fill(59, 237, 0); 
-    rect(150, 100, w, 10);
+    fill(c); 
+    rect(150, 100, w, 10); //draw health bar
   }
-} 
+
+  void hurthealth() { //decrease link's health bar
+    w -= 10; //decrease health by 10
+    if (w <= 50) { //if health is < 10
+      c = color (255, 34, 0); //health bar tunrs red
+    }
+  }
+}

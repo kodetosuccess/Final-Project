@@ -24,6 +24,9 @@ void draw () {
   s.move(); //move shadow around to follow link
   s.health(); //health bars for shadow and link
   l.health();
+  if (l.isincontactwith(s) ) {
+    s.hurthealth();
+  }
 }
 
 void keyPressed () {
