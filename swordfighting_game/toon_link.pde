@@ -47,8 +47,21 @@ class Link { //declare new class for toon link
 
 
   void health () { //health bar at top for link
-    strokeWeight(6); 
+    strokeWeight(8); 
+    fill(214, 214, 214); 
+    rect(146, 96, 206, 16);
+    strokeWeight(0); 
     fill(c); 
-    rect(150, 100, w, 10); //draw health bar
+    rect(150, 100, w, 10); //health points
+  }
+  
+  void decreasehealth() { //decrease health
+    w -= 1; //decrease health
+    if (w <= 100) { //if health is < 10
+      c = color (255, 34, 0); //health bar tunrs red
+      if (w <= 0) {
+        w = 0;
+      }
+    }
   }
 }

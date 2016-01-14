@@ -27,6 +27,10 @@ void draw () {
   if (l.isincontactwith(s) ) {
     s.decreasehealth();
   }
+
+  if (s.isincontactwith(l)) {
+    l.decreasehealth();
+  }
 }
 
 void keyPressed () {

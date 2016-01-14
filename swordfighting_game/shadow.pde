@@ -32,7 +32,13 @@ class Shadow { //declare new class for shadow
     return newLoc;
   }
 
-
+  boolean isincontactwith (Link l) {
+    if (loc.dist(l.loc) <= loc.x/4 + l.loc.x/4) {
+      return true; //then return true
+    } else { //otherwise
+      return false;
+    }
+  }
 
   void health () { //health bar at top for shadow
     strokeWeight(8); 
@@ -44,7 +50,7 @@ class Shadow { //declare new class for shadow
   }
 
   void decreasehealth() { //decrease health
-    w -= 2; //decrease by 10
+    w -= 1; //decrease health
     if (w <= 100) { //if health is < 10
       c = color (255, 34, 0); //health bar tunrs red
       if (w <= 0) {
