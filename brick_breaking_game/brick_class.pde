@@ -10,7 +10,7 @@ class Brick {
 
 
   boolean Disappears(Cannonball c) {
-    if (loc.dist(c.loc) < 30) {
+    if (loc.dist(c.loc) < 5) {
       return true;
     } else {
       return false;

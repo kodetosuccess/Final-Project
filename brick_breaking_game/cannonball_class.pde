@@ -4,7 +4,7 @@ class Cannonball {
 
 
   Cannonball() {
-    loc = new PVector(width/2, height-300);
+    loc = new PVector(width/2, height-210);
     vel = new PVector(4, 4);    //set velocity of cannonball b/w 0 and 4
     cnnball = loadImage("cannonball.png");
   }
@@ -21,7 +21,7 @@ class Cannonball {
 
 
   boolean Touches(Cannon C1) {
-    if (loc.dist(C1.loc) < 10) {
+    if (loc.dist(C1.loc) < 5) {
       return true;
     } else {
       return false;

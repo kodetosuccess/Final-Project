@@ -33,7 +33,7 @@ void draw () {
   C1.display();
   c.display();
   if (mousePressed) {
-  c.move();
+    c.move();
   }
   //bricks.add(new Brick(random(width), 0));
   for (int i = bricks.size()-1; i >= 0; i--) {
@@ -45,12 +45,18 @@ void draw () {
     //C1.display();
     if (b.Disappears(c)) {
       bricks.remove(i);
+      c.vel.y = -(c.vel.y);
+    c.vel.x = -(c.vel.x);
     }
   }
 
   if (c.Touches(C1)) {
     c.vel.y = -(c.vel.y);
     c.vel.x = -(c.vel.x);
-    //c.update();
+  }
+
+  if (c.loc.x >= width || c.loc.x <= 0 || c.loc.y <= 0 || c.loc.y >= height) {
+    c.vel.y = -(c.vel.y);
+    c.vel.x = -(c.vel.x);
   }
 }

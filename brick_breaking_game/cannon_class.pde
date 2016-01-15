@@ -8,6 +8,7 @@ class Cannon {
   }
   
   void display () {
+  image(cannon, mouseX, height-150);
   }
   
 
