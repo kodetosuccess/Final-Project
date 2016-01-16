@@ -38,7 +38,7 @@ class Link { //declare new class for toon link
   }
 
   boolean isincontactwith (Shadow s) { //to hurt shadow
-    if (loc.dist(s.loc) <= loc.x/4 + s.loc.x/4) {
+    if (loc.dist(s.loc) <= 75) {
       return true; //then return true
     } else { //otherwise
       return false;
@@ -47,20 +47,20 @@ class Link { //declare new class for toon link
 
 
   void health () { //health bar at top for link
-    strokeWeight(8); 
-    fill(214, 214, 214); 
-    rect(146, 96, 206, 16);
+    strokeWeight(8); //border for health bar
+    fill(214, 214, 214);  //bg gray color
+    rect(146, 96, 206, 16); //draw health bar border
     strokeWeight(0); 
-    fill(c); 
+    fill(c); //health bar starts out green initially
     rect(150, 100, w, 10); //health points
   }
-  
+
   void decreasehealth() { //decrease health
     w -= 1; //decrease health
     if (w <= 100) { //if health is < 10
       c = color (255, 34, 0); //health bar tunrs red
-      if (w <= 0) {
-        w = 0;
+      if (w <= 0) { //if there's no more health
+        w = 0; //stop decreasing health
       }
     }
   }
