@@ -3,21 +3,26 @@
 Link l; 
 Shadow s; 
 //Heart h; 
-PImage forest; 
+PImage forest, lostwoods; 
 
 void setup () {
   size (1200, 800);
   imageMode(CENTER); 
+  textAlign(CENTER); 
   l = new Link();
   s = new Shadow(); 
   forest = loadImage ("forest.jpg");
+  lostwoods = loadImage("lost woods.jpg"); 
+
   //h = new Heart();
 }
 
 
 void draw () {
   println(s.loc.x - l.loc.x); 
+
   image (forest, width/2, height/2); //draw bg
+
   l.display(); //display link
   s.display(); //display shadow
   //h.display(); //display health
@@ -26,6 +31,12 @@ void draw () {
   l.health();
   if (l.isincontactwith(s) ) { //if link touches shadow
     s.decreasehealth(); //shadow's health decreases
+  }
+  if (s.isincontactwith(l)) { //if shadows gets past link's sword
+    l.decreasehealth(); //links' health will decrease
+  }
+  if (s.nohealth()) { //if shadow's health is 0
+    endscreen(); //display endscreen
   }
 }
 
@@ -44,4 +55,14 @@ void keyPressed () {
     l.t = false; 
     l.linkdown(); //link moves down
   }
+}
+
+
+void endscreen() {
+  image(lostwoods, width/2, height/2); //lost woods image
+  fill(255);
+  textSize(30);
+
+  text("Congratulations, you have finally made it out of the maze.", width/2, 300); 
+  text("Now let the music of the forest guide you on the rest of your journey...", width/2, 350);
 }
