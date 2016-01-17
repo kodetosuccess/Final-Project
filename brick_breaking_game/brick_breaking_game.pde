@@ -35,28 +35,25 @@ void draw () {
   if (mousePressed) {
     c.move();
   }
-  //bricks.add(new Brick(random(width), 0));
+
   for (int i = bricks.size()-1; i >= 0; i--) {
     Brick b = bricks.get(i);
-    //c.display();
-    //c.move();
-    //c.update();
     b.display();
-    //C1.display();
-    if (b.Disappears(c)) {
+    if (c.Disappears(b)) {
       bricks.remove(i);
       c.vel.y = -(c.vel.y);
-    c.vel.x = -(c.vel.x);
+      c.vel.x = -(c.vel.x);
+    }
+    if (C1.Touches(c)) {
+      c.vel.y = -(c.vel.y);
     }
   }
 
-  if (c.Touches(C1)) {
+  if (c.loc.y >= height) {
     c.vel.y = -(c.vel.y);
-    c.vel.x = -(c.vel.x);
   }
 
-  if (c.loc.x >= width || c.loc.x <= 0 || c.loc.y <= 0 || c.loc.y >= height) {
-    c.vel.y = -(c.vel.y);
+  if (c.loc.x >= width || c.loc.x <= 0 ) {    //if the ball touches either side of the screen
     c.vel.x = -(c.vel.x);
   }
 }

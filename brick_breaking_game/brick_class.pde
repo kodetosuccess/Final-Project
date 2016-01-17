@@ -8,15 +8,6 @@ class Brick {
     brick = loadImage("brick.jpg");
   }
 
-
-  boolean Disappears(Cannonball c) {
-    if (loc.dist(c.loc) < 5) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   void display () {
     image(brick, loc.x, loc.y);    //display brick image
   }
