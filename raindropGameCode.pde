@@ -1,8 +1,8 @@
 ArrayList<Raindrop> rds = new ArrayList <Raindrop>(); //make array list
 
 Bucket b; //make bucket catcher
-Sun melt; 
-
+//Sun melt; 
+PImage forest;
 
 PVector mouse;   //declare a Pvector mouse
 
@@ -17,8 +17,9 @@ void setup() {
   mouse = new PVector();  //initialize mouse PVector. value is irrelevant since it will be set at the start of void draw(){}
   rds.add(new Raindrop(random(width), random(-height, 0))); //add raindrops to arraylist
   b = new Bucket(); //bucket with diameter of 100
-  melt = new Sun(); 
+  //melt = new Sun(); 
   textAlign(CENTER); //centers text
+  forest = loadImage("forest.jpg");
 }
 
 
@@ -36,19 +37,19 @@ void draw () {
 }
 
 void startscreen() { //startscreen fuctnion
-  background(0, 200, 255); //bg color
+image(forest, 0, 0);
   textSize(100); 
   fill(255); 
-  text("Snowman", width/2, 350); //beginning info and such
+  text("Catch the Light", width/2, 350); //beginning info and such
   textSize(20); 
-  text("The goal of this game is to make Frosty as big as possible by collecting snowballs.", width/2, height/2); 
+  text("Catch as much light as you can to find your way out of the maze.", width/2, height/2); 
   text("Press 'SHIFT' to start", width/2, 430);
 }
 
 void winscreen() { //winscreen function
   background(0, 200, 255); //bg color
   textSize(50); 
-  text("YOU WIN", width/2, height/2); //you win
+  text("Now you can find your way through the maze.", width/2, height/2); //you win
   textSize(30); 
   text("Press 'Shift' to restart game", width/2, 450);
 }
@@ -63,10 +64,8 @@ void losescreen() { //losescreen fnction
 
 
 void playgame() { //playgame funcion
+image(forest,0, 0);//bg color
   println(rds.size()); //check size of array list
-
-  background(0, 200, 255); //bg color
-
   mouse.set(mouseX, mouseY);   //set value of mouse as mouseX,mouseY
   fill(255); //make scoreboard white
   rect(1100, 700, 1200, 800); //draw scoreboard
@@ -74,9 +73,9 @@ void playgame() { //playgame funcion
   textSize(30); //change text size
   text(s, 1150, 750); //displays score
 
-  melt.display(); //displays sun
+//  melt.display(); //displays sun
 
-  for (int i = 0; i < 40; i++) { //start w/ 40 snowballs
+  for (int i = 0; i < 25; i++) { //start w/ 40 snowballs
     rds.add(new Raindrop(random(width), random(-height, 0))); //add new snowballs to array list
   }
 
@@ -89,9 +88,9 @@ void playgame() { //playgame funcion
     r.fall(); //raindrops will fall
 
 
-    if (r.melts(melt)) { //if sun touches snowball 
-      rds.remove(i); // remove snowball
-    }
+//   if (r.melts(melt)) { //if sun touches snowball 
+  //    rds.remove(i); // remove snowball
+    //}
 
     if (r.isInContactWith(b)) { //if a raindrop is in contact with the bucket
       rds.remove(i); //remove raindrop
