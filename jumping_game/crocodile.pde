@@ -3,12 +3,14 @@ class Crocodile{
   PVector loc;
   
   Crocodile(float x, float y){
+       imageMode(CENTER); 
+
     croc = loadImage("crocodile.png");
     loc = new PVector(x,y);
   }
   
   void display(){
-    image(croc,loc.x,loc.y,140,140);
+    image(croc,loc.x,loc.y,100,100);
   }
   
 }
