@@ -17,22 +17,48 @@ void setup() {
     crocodiles.add(new Crocodile(i, 600));
   }
 
- l = new Link (); 
-
+  l = new Link ();
 }
 
 
 void draw() {
+
+  println(l.loc.y);
   image(background, width/2, height/2, width, height);
 
   for (int i = crocodiles.size()-1; i >= 0; i--) {
     Crocodile c = crocodiles.get(i);
     c.display();
+    if (c.isincontactwith(l)) {
+      l.decreasehp();
+    }
   }
   for (int i = rocks.size()-1; i >= 0; i--) {
     Rock r = rocks.get(i);
-    r.display();
+    r.display(); //display the rocks
+    if (l.isincontactwith(r)) { //if link touches rock
+      l.vel.y = 0; //link no longer moves
+      l.vel.y = -5;
+    }
   }
-    l.display(); //display link
-   l.jump(); //cause link to jump
+
+
+  l.display(); //display link
+  l.jump(); //link will jump
+  l.health(); //link's hp
+}
+
+
+void keyPressed() {
+  if (keyCode == 'W') { //if key pressed is w
+    l.jump(); //link will start jumping once more
+  }
+
+  if (keyCode == 'D') { //if key pressed is d
+    l.forward(); //link will move forward
+  }
+
+  if (keyCode == 'A') { //if key pressed is a
+    l.backward(); //link will move backward
+  }
 }
