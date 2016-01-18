@@ -1,5 +1,5 @@
 class Cannonball {      //make Cannonball class
-  PVector loc, vel;  //declare PVector for location and velocity of the cannonball
+  PVector loc, vel, accel;  //declare PVector for location and velocity of the cannonball
   PImage cnnball;    //initialize cannonball PImage
   int diam;      //initialize diam which serves same purpose as diam in the cannon class
   int diam1;
@@ -11,10 +11,12 @@ class Cannonball {      //make Cannonball class
     cnnball = loadImage("cannonball.png");    //bring in the cannonball image
     diam = 70;    //setup of diam serves same purpose as diam in cannon class
     diam1 = 20;
+    accel = new PVector(random(0.02, 0.07), 0);    //give small but noticable acceleration to the cannonball 
   }
 
   void move () {
     loc.add(vel);    //add velocity to the cannonball to make it move
+    vel.add(accel);    //add acceleration to the velocity
   }
 
 
@@ -23,8 +25,8 @@ class Cannonball {      //make Cannonball class
   }
 
   boolean EndGame (Keytosuccess k) {    //used to end the game when you found the key
-    float z = loc.dist(k.loc);
-    if (z < diam1/2 + diam1) {
+    float d = loc.dist(k.loc);
+    if (d < diam1/2 + diam1) {
       return true;
     } else {
       return false;

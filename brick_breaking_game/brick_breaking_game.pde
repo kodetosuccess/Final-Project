@@ -49,7 +49,7 @@ void draw () {
   }
 
   if (c.EndGame(k)) {    //if the cannonball touches the key, end the game
-    image(darkdoor, 0, 0);    //make the background the dark door
+    background(darkdoor);
   }
 
   if (C1.Touches(c)) {    //if the Cannon touches the cannonball
