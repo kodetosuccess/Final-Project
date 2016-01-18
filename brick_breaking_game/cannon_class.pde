@@ -6,7 +6,7 @@ class Cannon {      //make Cannon class
   Cannon() {
     loc = new PVector();    //make loc a new PVector
     cannon = loadImage("cannon.png");    //bring in cannon image
-    diam = ;    //helper in distance determination
+    diam = 100;    //helper in distance determination
   }
 
   void display () {
