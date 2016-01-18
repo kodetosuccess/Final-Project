@@ -4,6 +4,7 @@ class Brick {      //make Brick class
 
 
   Brick(float a, float b) {
+    imageMode(CENTER); 
     loc = new PVector(a, b);    //make loc a new PVector 
     brick = loadImage("brick.jpg");    //bring in the brick image
   }
