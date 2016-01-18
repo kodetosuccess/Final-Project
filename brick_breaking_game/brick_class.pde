@@ -1,11 +1,11 @@
-class Brick {
-  PImage brick;
-  PVector loc;
+class Brick {      //make Brick class
+  PImage brick;    //initialize brick PImage
+  PVector loc;    //initialize loc PVector
 
 
   Brick(float a, float b) {
-    loc = new PVector(a, b);
-    brick = loadImage("brick.jpg");
+    loc = new PVector(a, b);    //make loc a new PVector 
+    brick = loadImage("brick.jpg");    //bring in the brick image
   }
 
   void display () {
