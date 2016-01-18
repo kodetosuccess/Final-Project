@@ -8,6 +8,7 @@ PImage darkdoor;    //access dark door background image
 
 void setup () {
   size(1200, 800);
+  imageMode(CENTER); 
   c = new Cannonball();    //make a new cannonball
   C1 = new Cannon();    //make a new cannon
   k = new Keytosuccess(random(width), random(0, 300));  //make a new key to success at any location w/in the rows of bricks
@@ -29,14 +30,14 @@ void setup () {
 
 
 void draw () {
-  println("there are " + bricks.size() + " bricks");  //tell us how many bricks there are
-  image(darkdoor, 0, 0);    //make the background the dark door
+  println(C1.Touches(c)); 
+  //println("there are " + bricks.size() + " bricks");  //tell us how many bricks there are
+  image(darkdoor, width/2, height/2);    //make the background the dark door
   C1.display();    //display the cannon
   c.display();    //display the cannonball
   k.display();     //display the key to success
-  if (mousePressed) {    //if mouse is Pressed
-    c.move();    //move the cannonball
-  }
+  c.move();    //move the cannonball
+  C1.update(); 
 
   for (int i = bricks.size()-1; i >= 0; i--) {    
     Brick b = bricks.get(i);    //keep adding bricks
@@ -53,7 +54,7 @@ void draw () {
   }
 
   if (C1.Touches(c)) {    //if the Cannon touches the cannonball
-    c.vel.y = -(c.vel.y);    //put the cannonball in the opposite y direction
+    c.vel.y = -c.vel.y;    //put the cannonball in the opposite y direction
   }
 
   if (c.loc.y >= height || c.loc.y <= 0) {    //if the cannonball touches the top of the screen ***********get rid of the c.loc.y >= height******************
@@ -61,6 +62,6 @@ void draw () {
   }
 
   if (c.loc.x >= width || c.loc.x <= 0 ) {    //if the ball touches either side of the screen 
-    c.vel.x = -(c.vel.x);    //put the cannonball in the opposite x direction
+    c.vel.x = -c.vel.x;    //put the cannonball in the opposite x direction
   }
 }
