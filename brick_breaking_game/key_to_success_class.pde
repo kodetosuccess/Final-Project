@@ -3,6 +3,7 @@ class Keytosuccess {
   PVector loc;    //make loc PVector
 
   Keytosuccess (float a, float b) {
+    imageMode(CENTER); 
     keytosuccess = loadImage("key to success.png");    //bring in key to success image
     loc = new PVector (a, b);    //(specified in the boid draw of the main code) give the key image this location
   }
@@ -10,6 +11,4 @@ class Keytosuccess {
   void display () {
     image(keytosuccess, loc.x, loc.y);    //make sure the key stays in this one place (previous attempts had the key moving around everywhere)
   }
-
-
 }
