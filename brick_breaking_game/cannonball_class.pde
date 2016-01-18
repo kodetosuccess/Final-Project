@@ -6,12 +6,13 @@ class Cannonball {      //make Cannonball class
 
 
   Cannonball() {
+        imageMode(CENTER); 
     loc = new PVector(width/2, height-240);      //make initial location of the cannonball a little above the cannon
     vel = new PVector(6, -6);    //set velocity of cannonball 
     cnnball = loadImage("cannonball.png");    //bring in the cannonball image
     diam = 70;    //setup of diam serves same purpose as diam in cannon class
     diam1 = 20;
-    accel = new PVector(random(0.02, 0.07), 0);    //give small but noticable acceleration to the cannonball 
+    accel = new PVector(random(0.05), 0);    //give small but noticable acceleration to the cannonball
   }
 
   void move () {
