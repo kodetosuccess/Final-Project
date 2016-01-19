@@ -1,6 +1,9 @@
 class Link { //declare new class for toon link
   PVector loc, linkforward, linkbackward; 
-  PImage l, j; 
+  PImage  j; 
+  int count = 0; 
+  int numpics = 3; 
+  PImage l [] = new PImage [numpics]; 
   boolean t; 
   int w; //for health bar
   color c; //color for health bar
@@ -8,7 +11,10 @@ class Link { //declare new class for toon link
 
   Link () {
     imageMode(CENTER); 
-    l = loadImage("link.png"); 
+    for (int i = 0; i < numpics; i++) {
+      l[i] = loadImage("link" + i + ".png");
+    }
+
     j = loadImage("linkjump.png"); 
     loc = new PVector (300, 600);
     w= 200;
@@ -16,12 +22,18 @@ class Link { //declare new class for toon link
   }
 
   void display () { //display function
-    if (t == false) { //if t is flase
-      image(l, loc.x, loc.y); //draw image link
-    }
-    if (t == true) { //if t is true
-      image (j, loc.x, loc.y); //jumping link img
-    }
+    //if (t == false) { //if t is flase
+    if (frameCount%5){
+    count ++;
+    } if (
+
+    //}
+    //  image(l[i], loc.x, loc.y); //draw image link
+    //}
+    //if (t == true) { //if t is true
+    //  image (j, loc.x, loc.y); //jumping link img
+    //}
+    image(l[0], loc.x, loc.y);
   }
   void linkbackward () { //move link backward
     loc.x -= 20;
