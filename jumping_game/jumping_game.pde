@@ -41,11 +41,14 @@ void draw() {
       l.vel.y = -5;
     }
   }
-
+  if(l.loc.y > height){
+    l.reset();
+  }
 
   l.display(); //display link
   l.jump(); //link will jump
   l.health(); //link's hp
+
 }
 
 

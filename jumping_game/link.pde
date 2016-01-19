@@ -31,7 +31,13 @@ class Link {
   void backward() {
     loc.x -= 5; //moves link backwards
   }
-
+  
+  void reset(){    //reset link whenever link falls out of screen 
+    loc.x = 80;
+    loc.y = 630;   //reset location of the person back to the first rock
+    vel.set(0,10);
+  }
+  
   boolean isincontactwith(Rock r) {
     if (loc.dist(r.loc) < 70) { //if the distance between link and the rock is < 50
       return true; //return true
