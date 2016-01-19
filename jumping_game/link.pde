@@ -9,7 +9,7 @@ class Link {
     link = loadImage("link jump game.png"); 
     c = color (59, 237, 0);
     loc = new PVector (80, 550);
-    vel = new PVector(0, -8); 
+    vel = new PVector(0, -10); //changed velocity so link starts to jump higher
     g = new PVector (0, 0.3); //gravity
     w = 200; //link stars out with 200 health
   }
