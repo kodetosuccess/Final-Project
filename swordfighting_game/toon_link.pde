@@ -22,18 +22,17 @@ class Link { //declare new class for toon link
   }
 
   void display () { //display function
-    //if (t == false) { //if t is flase
-    if (frameCount%5 == 0) {
-      count ++;
-    } 
-    image(l[count%l.length], loc.x, loc.y);
+    if (t == false) { //if t is flase
+      if (frameCount%5 == 0) {
+        count ++;
+      } 
+      image(l[count%l.length], loc.x, loc.y);
+    }
 
-    //}
-    //  image(l[i], loc.x, loc.y); //draw image link
-    //}
-    //if (t == true) { //if t is true
-    //  image (j, loc.x, loc.y); //jumping link img
-    //}
+
+    if (t == true) { //if t is true
+      image (j, loc.x, loc.y); //jumping link img
+    }
   }
   void linkbackward () { //move link backward
     loc.x -= 20;
