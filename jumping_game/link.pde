@@ -25,11 +25,11 @@ class Link {
   }
 
   void forward() { 
-    loc.x += 5; //moves link forward
+    loc.x += 20; //moves link forward
   }
 
   void backward() {
-    loc.x -= 5; //moves link backwards
+    loc.x -= 20; //moves link backwards
   }
   
   void reset(){    //reset link whenever link falls out of screen 
