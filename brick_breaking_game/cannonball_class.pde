@@ -12,12 +12,12 @@ class Cannonball {      //make Cannonball class
     cnnball = loadImage("cannonball.png");    //bring in the cannonball image
     diam = 70;    //setup of diam serves same purpose as diam in cannon class
     diam1 = 20;
-    accel = new PVector(random(0.05), 0);    //give small but noticable acceleration to the cannonball
+    accel = new PVector(random(0, 0.07), 0);    //give small but noticable acceleration to the cannonball
   }
 
   void move () {
     loc.add(vel);    //add velocity to the cannonball to make it move
-    vel.add(accel);    //add acceleration to the velocity
+    vel.add(accel);       //add acceleration to the cannonball
   }
 
 
@@ -48,8 +48,11 @@ class Cannonball {      //make Cannonball class
       return false;
     }
   }
+<<<<<<< HEAD
   
  
   
   
+=======
+>>>>>>> origin/brick-breaking-game
 }
