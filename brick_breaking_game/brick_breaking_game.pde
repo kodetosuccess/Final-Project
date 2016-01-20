@@ -3,11 +3,11 @@ ArrayList<Brick> bricks = new ArrayList<Brick>();    //make array list for brick
 Cannonball c;    //initialize cannonball
 Cannon C1;    //intialize cannon
 Keytosuccess k;    //initialize key to success
-<<<<<<< HEAD
-=======
+
+
 PImage darkdoor;    //establish dark door background image
 PImage khaled;      //establish khaled image  
->>>>>>> origin/brick-breaking-game
+
 
 PImage darkdoor;    //access dark door background image
 int gameMode = 0; 
@@ -75,7 +75,7 @@ void playbrickgame() {
     c.vel.y = -c.vel.y;    //put the cannonball in the opposite y direction
   }
 
-<<<<<<< HEAD
+
   if (c.loc.y <= 0) {
     c.vel.y = -c.vel.y;
   }
@@ -83,13 +83,14 @@ void playbrickgame() {
   if (c.loc.y >= height ) {    //if the cannonball touches the bottom of the screen ************
     c.comeback();
     //brickreset();
-=======
+  }
+
   if (C1.Touches(c) && mousePressed) {    //if the cannon touches the cannonball and mouse is Pressed
     c.vel.x = -c.vel.x;    //put the cannonball in the opposite x direction
   }
   if (c.loc.y >= height || c.loc.y <= 0) {    //if the cannonball touches the top of the screen ***********get rid of the c.loc.y >= height******************
     c.vel.y = -(c.vel.y);    //put the cannonball in the opposite y direction
->>>>>>> origin/brick-breaking-game
+
   }
 
 

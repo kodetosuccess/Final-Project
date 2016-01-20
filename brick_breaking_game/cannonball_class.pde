@@ -48,11 +48,4 @@ class Cannonball {      //make Cannonball class
       return false;
     }
   }
-<<<<<<< HEAD
-  
- 
-  
-  
-=======
->>>>>>> origin/brick-breaking-game
 }
