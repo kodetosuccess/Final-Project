@@ -6,7 +6,7 @@ ArrayList <Rock> rocks = new ArrayList();
 Link l; 
 
 void setup() {
-  background = loadImage("setting.jpg");  //background image
+  background = loadImage("tunnel.jpg");  //background image
   imageMode(CENTER); 
 
   size(1200, 800);
