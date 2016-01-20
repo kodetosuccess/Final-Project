@@ -2,6 +2,7 @@
 PImage maze; 
 int gameMode = 0; 
 Sprite sprite; 
+int x, y;
 
 
 
@@ -11,15 +12,17 @@ void setup () {
   size(1200, 800); 
   maze = loadImage("maze.png");
   sprite = new Sprite ();
+  x = int(sprite.loc.x); 
+  y = int(sprite.loc.y);
 }
 
 void draw () {
-
+  background(maze); 
   if (gameMode == 0) { //if gamemode is 0
 
     introscreen(); //display intro screen
   }
-  image(maze, width/2, height/2);
+
   sprite.display();
 }
 
