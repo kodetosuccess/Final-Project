@@ -8,6 +8,7 @@ class Sprite {
     loc = new PVector(50, 700);
   }
 
+
   void display() {
     image(sprite, loc.x, loc.y, 75, 75); //display link sprite, scaled down
   }
@@ -26,5 +27,9 @@ class Sprite {
 
   void spritedown() { //move sprite down
     loc.y += 5;
+  }
+
+  boolean isNear() { //if its near one of the gems;
+    return true;
   }
 }
