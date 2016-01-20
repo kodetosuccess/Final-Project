@@ -23,7 +23,7 @@ class Link {
   void startJump() {
     jumping = true; //makes person jump up
     vel.y = -7;  //add velocity to make it go up
-    g.y = .9; //gravity
+    g.y = .6; //gravity
   }
   void endJump() {
     loc.y = 650; //ends jump when in contact with rock
@@ -38,9 +38,9 @@ class Link {
       endJump();
     }
     if (keyPressed && keyCode ==RIGHT) {  //moves link to the right
-      loc.x+=20;
+      loc.x+=15;
     } else if (keyPressed && keyCode ==LEFT) { //moves link backwards
-      loc.x-=20;
+      loc.x-=15;
     } else if (keyPressed && keyCode ==UP) { //makes link jump higher
       startJump();
     }
