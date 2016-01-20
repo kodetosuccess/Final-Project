@@ -3,6 +3,7 @@ class Link {
   PImage link;
   color c; //color for health bar
   int w; //for health bar
+  Boolean jumping;
 
   Link() {
     imageMode(CENTER); 
@@ -12,32 +13,45 @@ class Link {
     vel = new PVector(0, -10); //changed velocity so link starts to jump higher
     g = new PVector (0, 0.3); //gravity
     w = 200; //link stars out with 200 health
+    jumping = false;
   }
 
   void display() {
     image(link, loc.x, loc.y);
   }
 
-  PVector jump() {
-    loc.add(vel); //makes person jump up
-    vel.add(g);  //add acceleration
-    return loc;
+  void startJump() {
+    jumping = true; //makes person jump up
+    vel.y = -7;  //add velocity to make it go up
+    g.y = .9; //gravity
   }
-
-  void forward() { 
-    loc.x += 20; //moves link forward
+  void endJump() {
+    loc.y = 650; //ends jump when in contact with rock
+    vel.y = 0;
+    g.y = 0;
+    jumping = false;
   }
-
-  void backward() {
-    loc.x -= 20; //moves link backwards
+  void move() {
+    vel.add(g); //add gravity to link moving makes it more realistic
+    loc.add(vel); //add velocity to location
+    if (jumping && loc.y > 650) {  //if link is on rock end the jumping so he doesn't fall past the rock
+      endJump();
+    }
+    if (keyPressed && keyCode ==RIGHT) {  //moves link to the right
+      loc.x+=20;
+    } else if (keyPressed && keyCode ==LEFT) { //moves link backwards
+      loc.x-=20;
+    } else if (keyPressed && keyCode ==UP) { //makes link jump higher
+      startJump();
+    }
   }
-  
-  void reset(){    //reset link whenever link falls out of screen 
+ 
+  void reset() {    //reset link whenever link falls out of screen 
     loc.x = 80;
     loc.y = 630;   //reset location of the person back to the first rock
-    vel.set(0,10);
+    vel.set(0, 10);
   }
-  
+
   boolean isincontactwith(Rock r) {
     if (loc.dist(r.loc) < 70) { //if the distance between link and the rock is < 50
       return true; //return true

@@ -46,22 +46,7 @@ void draw() {
   }
 
   l.display(); //display link
-  l.jump(); //link will jump
+  l.move(); //link will jump
   l.health(); //link's hp
 
-}
-
-
-void keyPressed() {
-  if (keyCode == 'W') { //if key pressed is w
-    l.jump(); //link will start jumping once more
-  }
-
-  if (keyCode == 'D') { //if key pressed is d
-    l.forward(); //link will move forward
-  }
-
-  if (keyCode == 'A') { //if key pressed is a
-    l.backward(); //link will move backward
-  }
 }
