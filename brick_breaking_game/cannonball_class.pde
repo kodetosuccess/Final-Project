@@ -11,13 +11,11 @@ class Cannonball {      //make Cannonball class
     vel = new PVector(6, -6);    //set velocity of cannonball 
     cnnball = loadImage("cannonball.png");    //bring in the cannonball image
     diam = 70;    //setup of diam serves same purpose as diam in cannon class
-    diam1 = 20;
-    accel = new PVector(random(0, 0.07), 0);    //give small but noticable acceleration to the cannonball
+    diam1 = 30;
   }
 
   void move () {
     loc.add(vel);    //add velocity to the cannonball to make it move
-    vel.add(accel);       //add acceleration to the cannonball
   }
 
 
@@ -27,7 +25,7 @@ class Cannonball {      //make Cannonball class
   
   void comeback() {
     loc.set(width/2, height-210);
-    vel.set(6, -6);
+    vel.set(random(6, -6), -4);
   }
 
 
