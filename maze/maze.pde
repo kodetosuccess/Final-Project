@@ -12,51 +12,42 @@ void setup () {
   size(1200, 800); 
   maze = loadImage("maze.png");
   sprite = new Sprite ();
-  x = int(sprite.loc.x); 
-  y = int(sprite.loc.y);
 }
 
 void draw () {
   background(maze); 
-  if (gameMode == 0) { //if gamemode is 0
+  println(x, y); 
 
-    introscreen(); //display intro screen
-  }
+  //if (gameMode == 0) { //if gamemode is 0
+
+  // introscreen(); //display intro screen
+  //  }
   sprite.display();
-  //if (maze.get(x, y) == color(0)) {
-  //  sprite.spriteup(); 
-  //  sprite.spritedown();
-  //  sprite.spriteleft();
-  //  sprite.spriteright();
-  // }
+
+  if (maze.get(x, y) != color(0)) {
+    sprite.reset();
+  }
 }
 
 
 void keyPressed() {
   if (maze.get(x, y) == color(0)) {
-    if (keyCode == 'W') { //if key pressed is w
+    x = int(sprite.loc.x); 
+    y = int(sprite.loc.y);
+    if (keyCode == UP) { //if key pressed is up
       sprite.spriteup(); //link sprite moves up
     }
 
-    if (keyCode == 'S') { //if key pressed is S
+    if (keyCode == DOWN) { //if key pressed is down
       sprite.spritedown(); //link sprite moves down
     }
 
-    if (keyCode == 'A') { //if key pressed is A
+    if (keyCode == LEFT) { //if key pressed is left
       sprite.spriteleft(); //link sprite moves left
     }
 
-    if (keyCode == 'D') { //if key pressed is D
+    if (keyCode == RIGHT) { //if key pressed is right
       sprite.spriteright(); //link sprite moves right
     }
   }
-}
-
-
-
-
-
-
-
-void introscreen() {
 }
