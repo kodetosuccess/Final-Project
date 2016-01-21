@@ -57,6 +57,24 @@ class Link { //declare new class for toon link
   }
 
 
+  void backonscreen() { //makes sure that they don't completely disappear off screen
+    if (loc.x - 99 <= 0 ) { //if link goes to the left off screen
+      loc.x = 100; //his new location is 100
+    } 
+    if (loc.x + 99 >= width) { //if link goes to the screen on the right
+      loc.x = 1100; //his new location is 1100;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
   void health () { //health bar at top for link
     strokeWeight(8); //border for health bar
     fill(214, 214, 214);  //bg gray color

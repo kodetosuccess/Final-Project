@@ -28,7 +28,6 @@ class Shadow { //declare new class for shadow
     noise = i;
     b += .035;
     PVector newLoc = new PVector(l.loc.x + 100 + noise, l.loc.y);
-
     return newLoc;
   }
 

@@ -2,7 +2,7 @@
 
 Link l; 
 Shadow s; 
-//Heart h; 
+
 PImage forest, lostwoods; 
 
 void setup () {
@@ -14,18 +14,19 @@ void setup () {
   forest = loadImage ("forest.jpg");
   lostwoods = loadImage("lost woods.jpg"); 
 
-  //h = new Heart();
+ 
 }
 
 
 void draw () {
-  println(s.loc.x - l.loc.x); 
+  println(s.loc.x - l.loc.x); //just to chek location
 
   image (forest, width/2, height/2); //draw bg
 
   l.display(); //display link
   s.display(); //display shadow
-  //h.display(); //display health
+  l.backonscreen();  //makes sure that link doesn't go off screen
+
 
   s.health(); //health bars for shadow and link
   l.health();
@@ -62,7 +63,6 @@ void endscreen() {
   image(lostwoods, width/2, height/2); //lost woods image
   fill(255);
   textSize(30);
-
   text("Congratulations, you have finally made it out of the maze.", width/2, 300); 
   text("Now let the music of the forest guide you on the rest of your journey...", width/2, 350);
 }
