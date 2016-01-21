@@ -64,7 +64,7 @@ void playbrickgame() {
     if (c.Disappears(b)) {    //if the cannonball touches one of the bricks
       bricks.remove(i);    //remove the bricks
       c.vel.y = -(c.vel.y);    //put the cannonball in the opposite y direction
-      c.vel.x = -(c.vel.x);    //put the cannonball in the opposite x direction
+      c.vel.x = random(3, 10);    //put the cannonball in the opposite (random) x direction
     }
   }
 
@@ -83,7 +83,6 @@ void playbrickgame() {
   if (c.loc.x + c.diam/2 >= width || c.loc.x - c.diam/2 <= 0 ) {    //if the ball touches either side of the screen 
     c.vel.x = -c.vel.x;    //put the cannonball in the opposite x direction
   }
-
 
   if (c.EndGame(k)) {    //if the cannonball touches the key, end the game
     endgame();
