@@ -48,55 +48,54 @@ void draw () {
 
 
 
-  void playbrickgame() {
-    println(C1.Touches(c)); 
-    //println("there are " + bricks.size() + " bricks");  //tell us how many bricks there are
-    image(darkdoor, width/2, height/2);    //make the background the dark door
-    C1.display();    //display the cannon
-    c.display();    //display the cannonball
-    k.display();     //display the key to success
-    c.move();    //move the cannonball
-    C1.update(); 
+void playbrickgame() {
+  println(C1.Touches(c)); 
+  //println("there are " + bricks.size() + " bricks");  //tell us how many bricks there are
+  image(darkdoor, width/2, height/2);    //make the background the dark door
+  C1.display();    //display the cannon
+  c.display();    //display the cannonball
+  k.display();     //display the key to success
+  c.move();    //move the cannonball
+  C1.update(); 
 
-    for (int i = bricks.size()-1; i >= 0; i--) {    
-      Brick b = bricks.get(i);    //keep adding bricks
-      b.display();    //display bricks
-      if (c.Disappears(b)) {    //if the cannonball touches one of the bricks
-        bricks.remove(i);    //remove the bricks
-        c.vel.y = -(c.vel.y);    //put the cannonball in the opposite y direction
-        c.vel.x = -(c.vel.x);    //put the cannonball in the opposite x direction
-      }
-    }
-
-    if (C1.Touches(c)) {    //if the Cannon touches the cannonball
-      c.vel.y = -c.vel.y;    //put the cannonball in the opposite y direction
-    }
-
-    if (c.loc.y >= height ) {    //if the cannonball touches the bottom of the screen 
-      c.comeback();
-      //brickreset();
-    }
-
-    if (C1.Touches(c) && mousePressed) {    //if the cannon touches the cannonball and mouse is Pressed
-      c.vel.x = -c.vel.x;    //put the cannonball in the opposite x direction
-    }
-    if (c.loc.y >= height || c.loc.y <= 0) {    //if the cannonball touches the top of the screen 
+  for (int i = bricks.size()-1; i >= 0; i--) {    
+    Brick b = bricks.get(i);    //keep adding bricks
+    b.display();    //display bricks
+    if (c.Disappears(b)) {    //if the cannonball touches one of the bricks
+      bricks.remove(i);    //remove the bricks
       c.vel.y = -(c.vel.y);    //put the cannonball in the opposite y direction
-    }
-
-
-
-    if (c.loc.x >= width || c.loc.x <= 0 ) {    //if the ball touches either side of the screen 
-      c.vel.x = -c.vel.x;    //put the cannonball in the opposite x direction
-    }
-
-
-
-    if (c.EndGame(k)) {    //if the cannonball touches the key, end the game
-      endgame();
+      c.vel.x = -(c.vel.x);    //put the cannonball in the opposite x direction
     }
   }
 
-  void endgame() {
-    background(khaled);    //display  DJ Khaled
+  if (C1.Touches(c)) {    //if the Cannon touches the cannonball
+    c.vel.y = -c.vel.y;    //put the cannonball in the opposite y direction
+    //c.vel.x = -c.vel.x;   //put the cannonball in the opposite x direction
   }
+
+  if (c.loc.y >= height ) {    //if the cannonball touches the bottom of the screen 
+    c.comeback();
+    //brickreset();
+  }
+
+
+  if (c.loc.y >= height || c.loc.y <= 0) {    //if the cannonball touches the top of the screen 
+    c.vel.y = -(c.vel.y);    //put the cannonball in the opposite y direction
+  }
+
+
+
+  if (c.loc.x >= width || c.loc.x <= 0 ) {    //if the ball touches either side of the screen 
+    c.vel.x = -c.vel.x;    //put the cannonball in the opposite x direction
+  }
+
+
+
+  if (c.EndGame(k)) {    //if the cannonball touches the key, end the game
+    endgame();
+  }
+}
+
+void endgame() {
+  background(khaled);    //display  DJ Khaled
+}
