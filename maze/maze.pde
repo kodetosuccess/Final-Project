@@ -30,7 +30,9 @@ void draw () {
   // sprite.reset();
   // }
 
-  gem.display();
+  gem.displayblue();
+  gem.purple();
+  gem.red();
 }
 
 
@@ -38,35 +40,21 @@ void keyPressed() {
   if (keyCode == SHIFT) { //if shift key is pressed
     gameMode ++; //increase gamemode
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  if (maze.get(x, y) == color(0)) {
-    x = int(sprite.loc.x); 
-    y = int(sprite.loc.y);
-    if (keyCode == UP) { //if key pressed is up
-      sprite.spriteup(); //link sprite moves up
-    }
 
-    if (keyCode == DOWN) { //if key pressed is down
-      sprite.spritedown(); //link sprite moves down
-    }
 
-    if (keyCode == LEFT) { //if key pressed is left
-      sprite.spriteleft(); //link sprite moves left
-    }
+  if (keyCode == UP) { //if key pressed is up
+    sprite.spriteup(); //link sprite moves up
+  }
 
-    if (keyCode == RIGHT) { //if key pressed is right
-      sprite.spriteright(); //link sprite moves right
-    }
+  if (keyCode == DOWN) { //if key pressed is down
+    sprite.spritedown(); //link sprite moves down
+  }
+
+  if (keyCode == LEFT) { //if key pressed is left
+    sprite.spriteleft(); //link sprite moves left
+  }
+
+  if (keyCode == RIGHT) { //if key pressed is right
+    sprite.spriteright(); //link sprite moves right
   }
 }

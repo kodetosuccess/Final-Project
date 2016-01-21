@@ -14,22 +14,34 @@ class Sprite {
   }
 
   void spriteright() { //move sprite to right; 
-    loc.x += 5;
+    if (maze.get(int(loc.x + 5), int(loc.y)) == color(0)) {
+      loc.x += 5;
+    }
   }
 
   void spriteleft() { //move sprite to left
-    loc.x -= 5;
+    if (maze.get(int(loc.x - 5), int(loc.y)) == color(0)) {
+      loc.x -= 5;
+    }
   }
 
   void spriteup() { //move sprite up
-    loc.y -= 5;
+    if (maze.get(int(loc.x), int(loc.y - 5)) == color(0)) {
+      loc.y -= 5;
+    }
   }
 
   void spritedown() { //move sprite down
-    loc.y += 5;
+    if (maze.get(int(loc.x), int(loc.y + 5)) == color(0)) {
+      loc.y += 5;
+    }
   }
 
+
+
+
   boolean isNear() { //if its near one of the gems;
+
     return true;
   }
 }
