@@ -3,6 +3,7 @@ PImage maze;
 int gameMode = 0; 
 Sprite sprite; 
 int x, y;
+Gem gem; 
 
 
 
@@ -12,6 +13,7 @@ void setup () {
   size(1200, 800); 
   maze = loadImage("maze.png");
   sprite = new Sprite ();
+  gem = new Gem ();
 }
 
 void draw () {
@@ -24,13 +26,30 @@ void draw () {
   //  }
   sprite.display();
 
-  if (maze.get(x, y) != color(0)) {
-    sprite.reset();
-  }
+  //if (maze.get(x, y) != color(0)) {
+  // sprite.reset();
+  // }
+
+  gem.display();
 }
 
 
 void keyPressed() {
+  if (keyCode == SHIFT) { //if shift key is pressed
+    gameMode ++; //increase gamemode
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   if (maze.get(x, y) == color(0)) {
     x = int(sprite.loc.x); 
     y = int(sprite.loc.y);
