@@ -1,4 +1,4 @@
-class Crocodile {
+class Crocodile {  //new class for crocodiles
   PImage croc;
   PVector loc;
 
@@ -9,11 +9,11 @@ class Crocodile {
     loc = new PVector(x, y);
   }
 
-  void display() {
+  void display() {    
     image(croc, loc.x, loc.y, 100, 100);
   }
   
-  boolean isincontactwith(Link l){
+  boolean isincontactwith(Link l){  //if link/person is in contact with object
     if (loc.dist(l.loc) < 50){
       return true;
     } else {

@@ -22,31 +22,33 @@ void setup() {
 
 
 void draw() {
-
-  println(l.loc.y);
-  image(background, width/2, height/2, width, height);
-
-  for (int i = crocodiles.size()-1; i >= 0; i--) {
+  println("jumping is " + l.jumping);
+  image(background, width/2, height/2, width, height);    //background image
+  for (int i = crocodiles.size()-1; i >= 0; i--) {    //array for the crocodiles
     Crocodile c = crocodiles.get(i);
     c.display();
-    if (c.isincontactwith(l)) {
+    if (c.isincontactwith(l)) {   //if link/person touches crocodile, decrease life 
       l.decreasehp();
     }
   }
-  for (int i = rocks.size()-1; i >= 0; i--) {
+  boolean timeToFall = true;    
+  for (int i = rocks.size()-1; i >= 0; i--) {    //array for the rocks on the screen
     Rock r = rocks.get(i);
     r.display(); //display the rocks
+
     if (l.isincontactwith(r)) { //if link touches rock
-      l.vel.y = 0; //link no longer moves
-      l.vel.y = -5;
+      timeToFall = false;
+      //l.vel.y = 0; //link no longer moves
     }
   }
-  if(l.loc.y > height){
+  if (timeToFall) {  //if timeToFall is true
+    l.jumpOrFall();
+  }
+  if (l.loc.y > height) {    //reset the link/person whenever it falls off screen
     l.reset();
   }
 
   l.display(); //display link
   l.move(); //link will jump
   l.health(); //link's hp
-
 }
