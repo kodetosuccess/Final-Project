@@ -18,21 +18,21 @@ void setup () {
 
 void draw () {
   background(maze); 
-  println(x, y); 
+  println(gameMode); 
 
   //if (gameMode == 0) { //if gamemode is 0
 
   // introscreen(); //display intro screen
   //  }
-  sprite.display();
-
-  //if (maze.get(x, y) != color(0)) {
-  // sprite.reset();
-  // }
-
+  sprite.display(); //display all those images
   gem.displayblue();
-  gem.purple();
-  gem.red();
+  gem.displaypurple();
+  gem.displayred();
+  gem.displaygreen(); 
+
+  if (gem.linkisnear(sprite)) {
+    gameMode ++;
+  }
 }
 
 

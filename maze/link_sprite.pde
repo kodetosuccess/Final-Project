@@ -36,12 +36,4 @@ class Sprite {
       loc.y += 5;
     }
   }
-
-
-
-
-  boolean isNear() { //if its near one of the gems;
-
-    return true;
-  }
 }
