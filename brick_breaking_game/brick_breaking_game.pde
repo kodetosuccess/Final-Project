@@ -73,22 +73,16 @@ void playbrickgame() {
     //c.vel.x = -c.vel.x;   //put the cannonball in the opposite x direction
   }
 
-  if (c.loc.y >= height ) {    //if the cannonball touches the bottom of the screen 
-    c.comeback();
-    //brickreset();
-  }
 
-
-  if (c.loc.y >= height || c.loc.y <= 0) {    //if the cannonball touches the top of the screen 
+  if (c.loc.y + c.diam/2 >= height || c.loc.y - c.diam/2 <= 0) {    //if the cannonball touches the top of the screen 
     c.vel.y = -(c.vel.y);    //put the cannonball in the opposite y direction
   }
 
 
 
-  if (c.loc.x >= width || c.loc.x <= 0 ) {    //if the ball touches either side of the screen 
+  if (c.loc.x + c.diam/2 >= width || c.loc.x - c.diam/2 <= 0 ) {    //if the ball touches either side of the screen 
     c.vel.x = -c.vel.x;    //put the cannonball in the opposite x direction
   }
-
 
 
   if (c.EndGame(k)) {    //if the cannonball touches the key, end the game
