@@ -1,5 +1,5 @@
 
-PImage maze; 
+PImage maze, blue, purple, red, green;  
 int gameMode = 0; 
 Sprite sprite; 
 int x, y;
@@ -13,7 +13,10 @@ void setup () {
   size(1200, 800); 
   maze = loadImage("maze.png");
   sprite = new Sprite ();
-  gem = new Gem ();
+  blue = loadImage("blue gem.png"); 
+  purple = loadImage("purple gem.png"); 
+  red = loadImage("red gem.png"); 
+  green = loadImage("green gem.png");
 }
 
 void draw () {
@@ -22,18 +25,21 @@ void draw () {
 
   //if (gameMode == 0) { //if gamemode is 0
 
-  // introscreen(); //display intro screen
+  // beginningscreen(); //display intro screen
   //  }
   sprite.display(); //display all those images
-  gem.displayblue();
+  image (blue, 20, 525, 25, 25); //display blue gem
   gem.displaypurple();
   gem.displayred();
   gem.displaygreen(); 
 
-  if (gem.linkisnear(sprite)) {
+  if (sprite.loc.x <= 50) {
     gameMode ++;
   }
 }
+
+
+
 
 
 void keyPressed() {

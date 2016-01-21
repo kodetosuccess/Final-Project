@@ -36,7 +36,7 @@ class Gem {
   }
 
   boolean linkisnear(Sprite sprite) {
-    if (loc.dist(sprite.loc) <= 10) {
+    if (loc.dist(sprite.loc) <= 30) {
       return true;
     } else {
       return false;
