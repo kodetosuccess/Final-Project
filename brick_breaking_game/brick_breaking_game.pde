@@ -39,8 +39,6 @@ void setup () {
 void draw () {
   if (gameMode == 0) {
     playbrickgame();
-  } else {
-    endgame();
   }
 }
 
