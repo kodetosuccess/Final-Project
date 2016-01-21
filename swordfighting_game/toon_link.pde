@@ -34,6 +34,7 @@ class Link { //declare new class for toon link
       image (j, loc.x, loc.y); //jumping link img
     }
   }
+
   void linkbackward () { //move link backward
     loc.x -= 20;
   }
@@ -63,6 +64,13 @@ class Link { //declare new class for toon link
     } 
     if (loc.x + 99 >= width) { //if link goes to the screen on the right
       loc.x = 1100; //his new location is 1100;
+    }
+
+    if (loc.y - 50 <= 0 ) { //if link goes off top of screen
+      loc.y = 125; //reset height so he wont
+    }
+    if (loc.y + 50 >= height) { //if link goes off bottom of screen
+      loc.y = 700; //reset height so that he wont
     }
   }
 
