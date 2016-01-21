@@ -1,4 +1,4 @@
-class Gem {
+/*class Gem {
   PImage blue, purple, red, green; 
   PVector loc; 
 
@@ -42,4 +42,4 @@ class Gem {
       return false;
     }
   }
-}
+}*/

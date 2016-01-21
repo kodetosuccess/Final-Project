@@ -3,7 +3,6 @@ PImage maze, blue, purple, red, green;
 int gameMode = 0; 
 Sprite sprite; 
 int x, y;
-Gem gem; 
 
 
 
@@ -27,13 +26,14 @@ void draw () {
 
   // beginningscreen(); //display intro screen
   //  }
+
   sprite.display(); //display all those images
   image (blue, 20, 525, 25, 25); //display blue gem
-  gem.displaypurple();
-  gem.displayred();
-  gem.displaygreen(); 
+  // gem.displaypurple();
+  //gem.displayred();
+  //gem.displaygreen(); 
 
-  if (sprite.loc.x <= 50) {
+  if (dist(sprite.loc.x, sprite.loc.y, 20, 525) <= 50) {
     gameMode ++;
   }
 }
