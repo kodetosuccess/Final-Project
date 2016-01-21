@@ -23,10 +23,6 @@ class Cannonball {      //make Cannonball class
     image(cnnball, loc.x, loc.y);    //display the cannonball
   }
   
-  void comeback() {
-    loc.set(width/2, height-210);
-    vel.set(random(6, -6), -4);
-  }
 
 
   boolean EndGame (Keytosuccess k) {    //used to end the game when you found the key
