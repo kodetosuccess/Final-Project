@@ -5,8 +5,8 @@ Cannon C1;    //intialize cannon
 Keytosuccess k;    //initialize key to success
 
 
-PImage darkdoor;    //establish dark door background image
-PImage khaled;      //establish khaled image  
+PImage door;    //establish dark door background image
+
 
 
 int gameMode = 0; 
@@ -19,8 +19,8 @@ void setup () {
   k = new Keytosuccess(random(width), random(0, 300));  //make a new key to success at any location w/in the rows of bricks
 
   mouse = new PVector();    //make the mouse a new PVector
-  darkdoor = loadImage("darkdoor1.png");    //access zelda dark door image
-  khaled = loadImage("khaled.jpg");    //access DJ khaled image
+  door = loadImage("door.png");    //access zelda dark door image
+ 
   for (int i = 0; i <= width; i+=120) {    //make the top row of bricks
     bricks.add(new Brick(i, 0));    //this, along with the next 3 for loops, sets the row of the bricks apart ***notice adding of 100 to y coordinate, aka the height of the brick***
   }
@@ -47,9 +47,10 @@ void draw () {
 
 
 void playbrickgame() {
+  background(door); 
   println(C1.Touches(c)); 
   //println("there are " + bricks.size() + " bricks");  //tell us how many bricks there are
-  image(darkdoor, width/2, height/2);    //make the background the dark door
+
   C1.display();    //display the cannon
   c.display();    //display the cannonball
   k.display();     //display the key to success
@@ -68,7 +69,7 @@ void playbrickgame() {
 
   if (C1.Touches(c)) {    //if the Cannon touches the cannonball
     c.vel.y = -c.vel.y;    //put the cannonball in the opposite y direction
-    //c.vel.x = -c.vel.x;   //put the cannonball in the opposite x direction
+ 
   }
 
 
@@ -83,10 +84,6 @@ void playbrickgame() {
   }
 
   if (c.EndGame(k)) {    //if the cannonball touches the key, end the game
-    endgame();
+    //gameMode == 0; //for main code later
   }
-}
-
-void endgame() {
-  background(khaled);    //display  DJ Khaled
 }
