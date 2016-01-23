@@ -17,15 +17,11 @@ void setup () {
 
 
 void draw () {
-  println(s.loc.x - l.loc.x); //just to chek location
-
+  //println(s.loc.x - l.loc.x); //just to chek location
   image (forest, width/2, height/2); //draw bg
-
   l.display(); //display link
   s.display(); //display shadow
   l.backonscreen();  //makes sure that link doesn't go off screen
-
-
   s.health(); //health bars for shadow and link
   l.health();
   if (l.isincontactwith(s) ) { //if link touches shadow

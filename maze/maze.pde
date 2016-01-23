@@ -24,6 +24,16 @@ PImage fallinglink;
 
 
 
+//swordfighting game stuff
+Link l; 
+Shadow s; 
+PImage forest, swordintro; 
+
+//end screen stuff
+PImage lostwoods; 
+
+
+
 void setup () {
   imageMode(CENTER); 
   textAlign(CENTER); 
@@ -66,11 +76,20 @@ void setup () {
 
   //jumping game stuff
   fallinglink = loadImage("falling link.png");
+
+  //swordfighting game stuff
+  l = new Link();
+  s = new Shadow(); 
+  forest = loadImage ("forest.jpg");
+  swordintro = loadImage("swordfighting intro screen.jpg"); 
+
+  //end screen
+  lostwoods = loadImage("lost woods.jpg");
 }
 
 void draw () {
   background(maze); 
-  println(mouseX); 
+  println(sprite.loc); 
 
   if (gameMode == 0) { //if gamemode is 0
     beginningScreen(); //display intro screen
@@ -94,12 +113,12 @@ void draw () {
 
     image(red, 650, 225, 25, 25); //display red gem
     if (dist(sprite.loc.x, sprite.loc.y, 650, 225)  <= 50) { //if dist between sprite and red gem < 50
-      gameMode ++; //game mode increases
+      gameMode = 6; //game mode for jumping game start screen
     }
 
     image(green, 950, 550, 25, 25);
     if (dist(sprite.loc.x, sprite.loc.y, 950, 550) <= 50) { //if dist between sprite and green gem < 50
-      gameMode ++; //game mode increases
+      gameMode = 8; //game mode to start sword fighting game
     }
   }
 
@@ -135,10 +154,21 @@ void draw () {
   if (gameMode == 6) {
     jumpgameScreen(); //display jumpg game screen
   }
-  
+
   if (gameMode == 7) {
     jumpinggame(); 
     sprite.loc.x = 600; //moves it so can continue maze
+  }
+
+  //swordfighting game stuff
+  if (gameMode == 8) {
+    swordfightingScreen(); //display intro to sword fighting game
+  }
+
+  if (gameMode == 9) {
+    swordfighting(); //play swordfighting game
+    sprite.loc.x = 990; 
+    sprite.loc.y = 590;
   }
 }
 
@@ -152,7 +182,7 @@ void keyPressed() {
     lts.clear(); //clear arraylist for lights
   }
 
-  if (gameMode == 1) {
+  if (gameMode == 1) { //controls for while in maze
     if (keyCode == UP) { //if key pressed is up
       sprite.spriteup(); //link sprite moves up
     }
@@ -167,6 +197,23 @@ void keyPressed() {
 
     if (keyCode == RIGHT) { //if key pressed is right
       sprite.spriteright(); //link sprite moves right
+    }
+  }
+
+  if (gameMode == 9) { //controls for swordfighting game
+    if (keyCode == RIGHT) { //if right key is pressed
+      l.linkforward(); //link moves forwards
+    }
+    if (keyCode == LEFT) { // if left is pressed
+      l.linkbackward(); //link moves backwards
+    }
+    if (keyCode == UP) { //if upr is pressed
+      l.t = true; //l.t (boolean that controls which link img is displayed) is true
+      l.linkjump(); //link jumps up
+    }
+    if (keyCode == DOWN) { // if down is pressed
+      l.t = false; 
+      l.linkdown(); //link moves down
     }
   }
 }
@@ -262,7 +309,25 @@ void playbrickgame() {
 void jumpinggame() {
   background(0); 
   text("this is a placeholder until we get an issue solved", width/2, height/2); 
-  if (mouseX > 1000) {
+  if (mouseX >= 1000) {
     gameMode = 1; //this is just a placeholder until we can solve a few more issues witht he jumping game
+  }
+}
+
+void swordfighting() {
+  background(forest); 
+  l.display(); //display link
+  s.display(); //display shadow
+  l.backonscreen();  //makes sure that link doesn't go off screen
+  s.health(); //health bars for shadow and link
+  l.health();
+  if (l.isincontactwith(s) ) { //if link touches shadow
+    s.decreasehealth(); //shadow's health decreases
+  }
+  if (s.isincontactwith(l)) { //if shadows gets past link's sword
+    l.decreasehealth(); //links' health will decrease
+  }
+  if (s.nohealth()) { //if shadow's health is 0
+    gameMode = 1; //will return to maze
   }
 }
