@@ -293,7 +293,7 @@ void playbrickgame() {
     if (ball.Disappears(b)) {    //if the cannonball touches one of the bricks
       bricks.remove(i);    //remove the bricks
       ball.vel.y = -(ball.vel.y);    //put the cannonball in the opposite y direction
-      ball.vel.x = random(3, 10);    //put the cannonball in the opposite (random) x direction
+      ball.vel.x = ball.vel.x / abs(ball.vel.x) * random(3, 10);    //put the cannonball in the opposite (random) x direction
     }
   }
 
@@ -301,14 +301,25 @@ void playbrickgame() {
     ball.vel.y = -ball.vel.y;    //put the cannonball in the opposite y direction
   }
 
+
   if (ball.loc.y + ball.diam/2 >= height || ball.loc.y - ball.diam/2 <= 0) {    //if the cannonball touches the top of the screen 
     ball.vel.y = -(ball.vel.y);    //put the cannonball in the opposite y direction
+    ball.loc.y -= 5; // this is to make sure the ball does not get entangled with the wall
   }
 
-  if (ball.loc.x + ball.diam/2 >= width || ball.loc.x - ball.diam/2 <= 0 ) {    //if the ball touches either side of the screen 
+
+
+  if (ball.loc.x + ball.diam/2 >= width) {    //if the ball touches either side of the screen 
+    ball.loc.x -= 5; // this is to make sure the ball does not get entangled with the wall
     ball.vel.x = -ball.vel.x;    //put the cannonball in the opposite x direction
   }
-  if (ball.EndGame(k)) {    //if the cannonball touches the key, end the game
+
+  if (ball.loc.x - ball.diam/2 <= 0 ) {
+    ball.loc.x += 5; // this is to make sure the ball does not get entangled with the wall
+    ball.vel.x = -ball.vel.x;  //put the cannonball in the opposite x direction
+  }
+
+  if (ball.EndGame(k)) {  //if the cannonball touches the key, end the game
     gameMode = 1; //return to maze screen
   }
 }
