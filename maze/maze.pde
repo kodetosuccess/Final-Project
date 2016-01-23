@@ -43,7 +43,6 @@ void draw () {
   println(sprite.loc); 
 
   if (gameMode == 0) { //if gamemode is 0
-
     beginningScreen(); //display intro screen
   }
 
@@ -51,15 +50,15 @@ void draw () {
 
   if (gameMode == 1) { //if game mode is 1
     sprite.display(); //display all those images
-
-    image (blue, 20, 525, 25, 25); //display blue gem
+    
+    image (blue, 20, 525, 25, 25); //display blue gem (light game)
     if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 50) { //if dist between sprite and blue gem < 50 
       gameMode ++; //increase game mode
     }
 
-    image(purple, 25, 150, 25, 25);  //display purple gem
+    image(purple, 25, 150, 25, 25);  //display purple gem (brick breaking game)
     if (dist(sprite.loc.x, sprite.loc.y, 25, 150)  <= 50) { //if dist between sprite and purple gem < 50
-      gameMode ++; //game mode increases
+      gameMode = 4; //game mode changes to 4, will display intro screen for brick breaking game
     }
 
 
@@ -78,7 +77,7 @@ void draw () {
     lightcatchingScreen();
   }
 
-  if (gameMode ==3) { //play light catching game
+  if (gameMode == 3) { //play light catching game
     lightgame();
     sprite.loc.x = 60; //thisll make sure that it doesn't go back to gameMode == 2 and loop
   }
