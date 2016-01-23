@@ -19,7 +19,8 @@ void breakbreakingintroScreen() {
 
 
 
-/*void jumpgameScreen() {
- background(0); 
- text("Oh no! You've fallen down a hole!!", width/2, height/2);
- //}*/
+void jumpgameScreen() {
+  background(0); 
+  image(fallinglink, 1000, height/3, 261, 247);  
+  text("Oh no! You've fallen down a hole!!", width/2, height/2);
+}

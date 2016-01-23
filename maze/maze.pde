@@ -19,7 +19,8 @@ Cannon C1;    //intialize cannon
 Keytosuccess k;    //initialize key to success
 PImage door, brickintro;    //establish dark door background image
 
-
+//jumping game stuff
+PImage fallinglink; 
 
 
 
@@ -64,11 +65,12 @@ void setup () {
   }
 
   //jumping game stuff
+  fallinglink = loadImage("falling link.png");
 }
 
 void draw () {
   background(maze); 
-  println(sprite.loc); 
+  println(mouseX); 
 
   if (gameMode == 0) { //if gamemode is 0
     beginningScreen(); //display intro screen
@@ -101,6 +103,8 @@ void draw () {
     }
   }
 
+
+
   //stuff to display intro screen for individual games and make the games acutally happen
 
 
@@ -123,7 +127,18 @@ void draw () {
 
   if (gameMode == 5) { //play brick breaking game
     playbrickgame(); 
-    sprite.loc.x = 30;
+    sprite.loc.x = 100; //move sprite to new location so can continue maze
+  }
+
+
+  //jumping game stuff
+  if (gameMode == 6) {
+    jumpgameScreen(); //display jumpg game screen
+  }
+  
+  if (gameMode == 7) {
+    jumpinggame(); 
+    sprite.loc.x = 600; //moves it so can continue maze
   }
 }
 
@@ -208,7 +223,7 @@ void lightgame() { //playgame funcion
 
 void playbrickgame() {
   background(door); 
-  println(C1.Touches(ball)); 
+  //println(C1.Touches(ball)); 
   //println("there are " + bricks.size() + " bricks");  //tell us how many bricks there are
   C1.display();    //display the cannon
   ball.display();    //display the cannonball
@@ -237,8 +252,17 @@ void playbrickgame() {
   if (ball.loc.x + ball.diam/2 >= width || ball.loc.x - ball.diam/2 <= 0 ) {    //if the ball touches either side of the screen 
     ball.vel.x = -ball.vel.x;    //put the cannonball in the opposite x direction
   }
-
   if (ball.EndGame(k)) {    //if the cannonball touches the key, end the game
     gameMode = 1; //return to maze screen
+  }
+}
+
+
+
+void jumpinggame() {
+  background(0); 
+  text("this is a placeholder until we get an issue solved", width/2, height/2); 
+  if (mouseX > 1000) {
+    gameMode = 1; //this is just a placeholder until we can solve a few more issues witht he jumping game
   }
 }
