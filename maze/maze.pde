@@ -238,11 +238,11 @@ void keyPressed() {
 
 
 
-
+//functions for games
 
 
 void lightgame() { //playgame funcion
-  background(lightscreen); //bg color
+  background(lightscreen); //bg 
   mouse.set(mouseX, mouseY);   //set value of mouse as mouseX,mouseY
   fill(255); //make scoreboard white
 
