@@ -120,6 +120,10 @@ void draw () {
     if (dist(sprite.loc.x, sprite.loc.y, 950, 550) <= 50) { //if dist between sprite and green gem < 50
       gameMode = 8; //game mode to start sword fighting game
     }
+
+    if (maze.get(int(sprite.loc.x + 5), int(sprite.loc.y)) == color(5, 66, 19)) { //if the 5 pixels to the right  of sprite is green
+      gameMode = 10; //game mode is 10
+    }
   }
 
 
@@ -169,6 +173,11 @@ void draw () {
     swordfighting(); //play swordfighting game
     sprite.loc.x = 990; 
     sprite.loc.y = 590;
+  }
+
+  //end screen
+  if (gameMode == 10) {
+    endScreen();
   }
 }
 
@@ -313,6 +322,7 @@ void jumpinggame() {
     gameMode = 1; //this is just a placeholder until we can solve a few more issues witht he jumping game
   }
 }
+
 
 void swordfighting() {
   background(forest); 
