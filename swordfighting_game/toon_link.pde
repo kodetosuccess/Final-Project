@@ -14,7 +14,6 @@ class Link { //declare new class for toon link
     for (int i = 0; i < numpics; i++) {
       l[i] = loadImage("link" + i + ".png");
     }
-
     j = loadImage("linkjump.png"); 
     loc = new PVector (300, 600);
     w= 200;
@@ -22,35 +21,17 @@ class Link { //declare new class for toon link
   }
 
   void display () { //display function
-<<<<<<< HEAD
-    //if (t == false) { //if t is flase
-    if (frameCount%5){
-    count ++;
-    } if (
-
-    //}
-    //  image(l[i], loc.x, loc.y); //draw image link
-    //}
-    //if (t == true) { //if t is true
-    //  image (j, loc.x, loc.y); //jumping link img
-    //}
-    image(l[0], loc.x, loc.y);
-  }
-=======
     if (t == false) { //if t is flase
       if (frameCount%5 == 0) {
         count ++;
       } 
       image(l[count%l.length], loc.x, loc.y);
     }
-
-
     if (t == true) { //if t is true
       image (j, loc.x, loc.y); //jumping link img
     }
   }
 
->>>>>>> refs/remotes/origin/swordfighting-game
   void linkbackward () { //move link backward
     loc.x -= 20;
   }
@@ -74,8 +55,6 @@ class Link { //declare new class for toon link
   }
 
 
-<<<<<<< HEAD
-=======
   void backonscreen() { //makes sure that they don't completely disappear off screen
     if (loc.x - 99 <= 0 ) { //if link goes to the left off screen
       loc.x = 100; //his new location is 100
@@ -92,16 +71,6 @@ class Link { //declare new class for toon link
     }
   }
 
-
-
-
-
-
-
-
-
-
->>>>>>> refs/remotes/origin/swordfighting-game
   void health () { //health bar at top for link
     strokeWeight(8); //border for health bar
     fill(214, 214, 214);  //bg gray color
