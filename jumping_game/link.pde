@@ -1,13 +1,13 @@
-class Link {
+class JLink {
   PVector loc, vel, g;
-  PImage link;
+  PImage jlink;
   color c; //color for health bar
   int w; //for health bar
   Boolean jumping;
 
-  Link() {
+  JLink() {
     imageMode(CENTER); 
-    link = loadImage("link jump game.png"); 
+    jlink = loadImage("link jump game.png"); 
     c = color (59, 237, 0);
     loc = new PVector (80, 550);
     vel = new PVector(0, 0); //changed velocity so link starts to jump higher
@@ -17,8 +17,7 @@ class Link {
   }
 
   void display() {
-
-    image(link, loc.x, loc.y);
+    image(jlink, loc.x, loc.y);
   }
 
   void startJump() {
@@ -27,6 +26,7 @@ class Link {
     //g.y = .6; //gravity
     println("start a jump in frame " + frameCount);
   }
+
   void endJump() {
     loc.y = 550; //ends jump when in contact with rock
     vel.y = 0;
@@ -60,8 +60,8 @@ class Link {
     vel.set(0, 10);
   }
 
-  boolean isincontactwith(Rock r) {
-    if (loc.dist(r.loc) < 70) { //if the distance between link and the rock is < 50
+  boolean isincontactwith(Rock rock) {
+    if (loc.dist(rock.loc) < 70) { //if the distance between link and the rock is < 50
       endJump();   //link stops jumping
       return true; //return true
     } else {

@@ -5,7 +5,6 @@ class Rock {
 
   Rock(float x, float y) {
     imageMode(CENTER); 
-
     rock = loadImage("rock.png");
     loc = new PVector(x, y);
   }
