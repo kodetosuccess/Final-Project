@@ -22,6 +22,7 @@ class Link { //declare new class for toon link
   }
 
   void display () { //display function
+<<<<<<< HEAD
     //if (t == false) { //if t is flase
     if (frameCount%5){
     count ++;
@@ -35,6 +36,21 @@ class Link { //declare new class for toon link
     //}
     image(l[0], loc.x, loc.y);
   }
+=======
+    if (t == false) { //if t is flase
+      if (frameCount%5 == 0) {
+        count ++;
+      } 
+      image(l[count%l.length], loc.x, loc.y);
+    }
+
+
+    if (t == true) { //if t is true
+      image (j, loc.x, loc.y); //jumping link img
+    }
+  }
+
+>>>>>>> refs/remotes/origin/swordfighting-game
   void linkbackward () { //move link backward
     loc.x -= 20;
   }
@@ -58,6 +74,34 @@ class Link { //declare new class for toon link
   }
 
 
+<<<<<<< HEAD
+=======
+  void backonscreen() { //makes sure that they don't completely disappear off screen
+    if (loc.x - 99 <= 0 ) { //if link goes to the left off screen
+      loc.x = 100; //his new location is 100
+    } 
+    if (loc.x + 99 >= width) { //if link goes to the screen on the right
+      loc.x = 1100; //his new location is 1100;
+    }
+
+    if (loc.y - 50 <= 0 ) { //if link goes off top of screen
+      loc.y = 125; //reset height so he wont
+    }
+    if (loc.y + 50 >= height) { //if link goes off bottom of screen
+      loc.y = 700; //reset height so that he wont
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+>>>>>>> refs/remotes/origin/swordfighting-game
   void health () { //health bar at top for link
     strokeWeight(8); //border for health bar
     fill(214, 214, 214);  //bg gray color
