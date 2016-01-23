@@ -19,9 +19,9 @@ class Cannon {      //make Cannon class
     loc.set(mouseX, 650);
   }
 
-  boolean Touches(Cannonball c) {    //this is for the interaction b/w the cannonball and cannon
-    float d = loc.dist(c.loc);    //make d variable which is the distance b/w the cannon and cannonball
-    if (d <= c.diam/2) {    //if the distance is less than 15  ***we set this up to keep ourselves organized***
+  boolean Touches(Ball ball) {    //this is for the interaction b/w the cannonball and cannon
+    float d = loc.dist(ball.loc);    //make d variable which is the distance b/w the cannon and cannonball
+    if (d <= ball.diam/2) {    //if the distance is less than 15  ***we set this up to keep ourselves organized***
       return true;
     } else {
       return false;

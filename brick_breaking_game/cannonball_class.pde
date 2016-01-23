@@ -1,11 +1,11 @@
-class Cannonball {      //make Cannonball class
+class Ball {      //make Cannonball class
   PVector loc, vel, accel;  //declare PVector for location and velocity of the cannonball
   PImage cnnball;    //initialize cannonball PImage
   int diam;      //initialize diam which serves same purpose as diam in the cannon class
   int diam1;
 
 
-  Cannonball() {
+  Ball() {
     imageMode(CENTER); 
     loc = new PVector(width/2, height-240);      //make initial location of the cannonball a little above the cannon
     vel = new PVector(6, -6);    //set velocity of cannonball 
