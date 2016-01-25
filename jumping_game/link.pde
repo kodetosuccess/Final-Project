@@ -23,11 +23,8 @@ class JLink {
     loc.add(vel);
     vel.add(g); //add gravity
   }
-
-  void endJump() {
-    isJump = false;
-    vel.y = 0; 
-    g.y = 0;
+  void returntoscreen() {
+    loc = new PVector (80, 550); //will return link to first rock
   }
 
   boolean isincontactwith(Rock rock) {

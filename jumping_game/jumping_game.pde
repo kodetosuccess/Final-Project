@@ -37,18 +37,13 @@ void draw() {
       jumpl.isJump = false; //he's not jumping
     }
   }
-
-  /*if (keyPressed && keyCode ==UP) {
-   rockCheck = false;
-   }*/
-
   println(rockCheck);
-  if (rockCheck == true) {
-    jumpl.vel.y = 0;
-    if (!keyPressed) {
-      jumpl.vel.x = 0;
+  if (rockCheck == true) { //if link is in contact w/ rock
+    jumpl.vel.y = 0; //he's not jumping
+    if (!keyPressed) { //and if the key isn't pressed
+      jumpl.vel.x = 0; //he's not moving in the x direction
     }
-    jumpl.g.y = 0;
+    jumpl.g.y = 0; //and he doesn't have gravity
   }
 
   if (keyPressed) {
@@ -59,12 +54,18 @@ void draw() {
       jumpl.vel.x -= 0.5;
     }
   }
-  if (rockCheck == false) {
-    jumpl.g.y = 0.2;
+
+  if (rockCheck == false) { //if he's not touching rock
+    jumpl.g.y = 0.2; //he's accelerating downwards
   }
-  jumpl.jump();
+  jumpl.jump(); //make link jump
   jumpl.display(); //display link
   jumpl.health(); //link's hp
+
+  if (jumpl.loc.y >= height ) { //if link falls off screen
+    jumpl.returntoscreen(); //returns to first rock
+    jumpl.w -= 10; //hp - 10
+  }
 }
 
 void keyPressed () {
