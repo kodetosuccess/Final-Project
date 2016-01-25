@@ -22,7 +22,7 @@ PImage door, brickintro;    //establish dark door background image
 //jumping game stuff
 PImage fallinglink; //for start screen
 int count = 20;    //declare all variables
-PImage background;
+PImage tunnel;
 ArrayList <Crocodile> crocodiles = new ArrayList();  //array lists for crocodile and rocks
 ArrayList <Rock> rocks = new ArrayList();
 boolean rockCheck = false; //check if link is in contact with rock
@@ -81,6 +81,7 @@ void setup () {
   //jumping game stuff
   fallinglink = loadImage("falling link.png");
   jumpl = new JLink ();
+  tunnel = loadImage("tunnel.jpg"); 
   for (int i = 80; i < width; i+=200) {  //created pattern for rocks to be displayed consecutively
     rocks.add(new Rock(i, 650));    //add a rock every 100 pixels
   }
@@ -173,6 +174,7 @@ void draw () {
   if (gameMode == 7) {
     jumpinggame(); 
     sprite.loc.x = 600; //moves it so can continue maze
+    sprite.loc.y = 275;
   }
 
   //swordfighting game stuff
@@ -348,7 +350,7 @@ void playbrickgame() {
 
 
 void jumpinggame() {
-  image(background, width/2, height/2, width, height);    //background image
+  background(tunnel);    //background image
   for (int i = crocodiles.size()-1; i >= 0; i--) {    //array for the crocodiles
     Crocodile croc = crocodiles.get(i);
     croc.display();
@@ -396,7 +398,7 @@ void jumpinggame() {
     gameMode = 1; //returns to maze
   }
   if (jumpl.w == 0) { //if health becomes 0
-    gameMode = 6; //return to jumpgame start screen
+    gameMode = 1;
   }
 }
 

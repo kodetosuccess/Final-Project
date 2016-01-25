@@ -27,6 +27,7 @@ class JLink {
     loc = new PVector (80, 550); //will return link to first rock
   }
 
+
   boolean isincontactwith(Rock rock) {
     if (loc.x > rock.loc.x - 40 && loc.x < rock.loc.x + 40 && loc.y < rock.loc.y - 50 && loc.y > rock.loc.y - 100) { //if the distance between link and the rock is < 50
       println(rock.loc.y);
