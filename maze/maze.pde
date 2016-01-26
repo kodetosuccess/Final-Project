@@ -213,8 +213,8 @@ void keyPressed() {
   if (keyCode == SHIFT) { //if shift key is pressed
     gameMode ++; //increase gamemode
     lts.clear(); //clear arraylist for lights
-    if (gameMode == 10) {
-      gameMode = 0;
+    if (gameMode == 10) { //if end screen is shown and shift key is pressed
+      gameMode = 0; //returns to beginning screen
     }
   }
 
