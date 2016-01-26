@@ -391,6 +391,7 @@ void jumpinggame() {
     }
     jumpl.g.y = 0; //and he doesn't have gravity
   }
+  
   if (keyPressed) {
     if (keyCode == RIGHT && jumpl.vel.x < 3) {  //moves link to the right
       jumpl.vel.x += 0.5;
@@ -399,6 +400,7 @@ void jumpinggame() {
       jumpl.vel.x -= 0.5;
     }
   }
+  
   if (rockCheck == false) { //if he's not touching rock
     jumpl.g.y = 0.2; //he's accelerating downwards
   }
