@@ -5,9 +5,11 @@ void beginningScreen() {
   textSize(30); 
   text("You have already made it this far on your journey to rescue Zelda.", width/2, height/2);
   text("Now, you face your biggest challenge yet.", width/2, 450);
+  textSize(20);
+  text("To get out of the maze you have to pass all the gems", width/2, 480); 
   textSize(15);
-  text("Use the arrow keys to move around in the maze.", width/2, 480);
-  text("Press SHIFT to Start", width/2, 500);
+  text("Use the arrow keys to move around in the maze.", width/2, 500);
+  text("Press SHIFT to Start", width/2, 520);
 }
 
 void lightcatchingScreen () {
