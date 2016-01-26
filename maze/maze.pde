@@ -110,6 +110,7 @@ void draw () {
 
   if (gameMode == 0) { //if gamemode is 0
     beginningScreen(); //display intro screen
+    sprite.loc = new PVector (50, 700);
   }
 
 
