@@ -157,7 +157,7 @@ void draw () {
   if (gameMode == 3) { //play light catching game
     lightgame();
     sprite.loc.x = 60; //thisll make sure that it doesn't go back to gameMode == 2 and loop
-    sprite.loc.y = 560; 
+    sprite.loc.y = 560;
   }
 
 
@@ -409,7 +409,11 @@ void jumpinggame() {
   }
   if (jumpl.w == 0) { //if health becomes 0
     gameMode = 1;
-    jumpl.w = 200; //restore health
+    jumpl.w = 200; //restore heatlh
+    jumpl.c = color (59, 237, 0); //makes health bar green 
+    jumpl.health();
+    jumpl.decreasehp(); 
+    jumpl.loc = new PVector (80, 550); //this will reset link's location to the first rock each time
   }
 }
 
