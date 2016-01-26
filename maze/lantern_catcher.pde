@@ -26,7 +26,7 @@ class Lantern { //declare new class for catching raindrops
   }
 
   void grow() {
-    x += .05; //will make light in lantern slowly grow bigger
+    x += .5; //will make light in lantern slowly grow bigger
   }
 
   boolean enoughlight() { //see weather or not light is big enough

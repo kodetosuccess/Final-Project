@@ -119,7 +119,10 @@ void draw () {
 
     image (blue, 20, 525, 25, 25); //display blue gem (light game)
     if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 50) { //if dist between sprite and blue gem < 50 
-      gameMode ++; //increase game mode
+      gameMode = 3; //increase game mode
+      for (int i = 0; i < 20; i++) { //start w/ 20 lights
+        lts.add(new Light(random(width), random(-height, 0))); //add new snowballs to array list
+      }
     }
 
     image(purple, 25, 150, 25, 25);  //display purple gem (brick breaking game)
@@ -134,7 +137,7 @@ void draw () {
     }
 
     image(green, 950, 550, 25, 25);
-    if (dist(sprite.loc.x, sprite.loc.y, 950, 550) <= 50) { //if dist between sprite and green gem < 50
+    if (dist(sprite.loc.x, sprite.loc.y, 950, 550) <= 40) { //if dist between sprite and green gem < 50
       gameMode = 8; //game mode to start sword fighting game
     }
 
@@ -156,6 +159,7 @@ void draw () {
 
   if (gameMode == 3) { //play light catching game
     lightgame();
+
     sprite.loc.x = 60; //thisll make sure that it doesn't go back to gameMode == 2 and loop
     sprite.loc.y = 560;
   }
@@ -279,15 +283,17 @@ void lightgame() { //playgame funcion
   mouse.set(mouseX, mouseY);   //set value of mouse as mouseX,mouseY
   fill(255); //make scoreboard white
 
-  for (int i = 0; i < 20; i++) { //start w/ 20 lights
-    lts.add(new Light(random(width), random(-height, 0))); //add new snowballs to array list
+  if (frameCount%3 == 0 ) {
+    for (int i = 0; i < 5; i++) { 
+      lts.add(new Light(random(width), random(-height, 0))); //add Lights to arraylist
+    }
   }
 
   lantern.update(); //updates l.loc as mouse
   lantern.display(); //display Lantern
   lantern.ball(); //light inside lantern
 
-  for (int i= lts.size() - 1; i >= 0; i --) {
+  for (int i= lts.size() - 1; i >= 0; i -= 1) {
     Light r = lts.get(i); //getting item in array lts at index i
     r.display(); //displays Light
     r.fall(); //Lights will fall
@@ -336,7 +342,7 @@ void playbrickgame() {
 
   if (ball.loc.y + ball.diam/2 >= height ) {
     ball.vel.y = -ball.vel.y;    //put the cannonball in the opposite y direction
-    ball.loc.y -= 5;
+    ball.loc = new PVector(random(width), ball.loc.y - 5);
   }
   if (ball.loc.y - ball.diam/2 <= 0) {    //if the cannonball touches the top of the screen 
     ball.vel.y = -ball.vel.y;    //put the cannonball in the opposite y direction

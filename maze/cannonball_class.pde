@@ -23,8 +23,6 @@ class Ball {      //make Cannonball class
     image(cnnball, loc.x, loc.y);    //display the cannonball
   }
 
-
-
   boolean EndGame (Keytosuccess k) {    //used to end the game when you found the key
     float d = loc.dist(k.loc);
     if (d < diam1/2 + diam1) {
