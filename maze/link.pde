@@ -39,9 +39,11 @@ class JLink {
 
   void health () { //health bar at top for link
     strokeWeight(8); //border for health bar
+    fill(0); //black
+    rect(146, 96, 208, 18); //border for health bar
     fill(214, 214, 214);  //bg gray color
-    rect(146, 96, 206, 16); //draw health bar border
-    strokeWeight(0);  
+    rect(150, 100, 200, 10); //draw health bar border
+    strokeWeight(0); 
     fill(c); //health bar starts out green initially
     rect(150, 100, w, 10); //health points
   }

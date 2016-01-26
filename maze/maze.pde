@@ -1,4 +1,5 @@
-
+//intro screen stuff
+PImage beglink; 
 
 //maze stuff
 PImage maze, blue, purple, red, green;  
@@ -31,7 +32,7 @@ JLink jumpl; //jumping link
 //swordfighting game stuff
 Link l; 
 Shadow s; 
-PImage forest, swordintro; 
+PImage forest, swordintro, swordintrolink; 
 
 //end screen stuff
 PImage lostwoods; 
@@ -42,6 +43,9 @@ void setup () {
   imageMode(CENTER); 
   textAlign(CENTER); 
   size(1200, 800); 
+  
+  //intro screen stuff
+  beglink = loadImage("beginning link.png"); 
 
   //maze stuff
   maze = loadImage("maze.png");
@@ -94,6 +98,7 @@ void setup () {
   s = new Shadow(); 
   forest = loadImage ("forest.jpg");
   swordintro = loadImage("swordfighting intro screen.jpg"); 
+  swordintrolink = loadImage("sword intro.png"); 
 
   //end screen
   lostwoods = loadImage("lost woods.jpg");
