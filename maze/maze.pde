@@ -117,7 +117,6 @@ void draw () {
 
   if (gameMode == 1) { //if game mode is 1
     sprite.display(); //display all those images
-
     image (blue, 20, 525, 25, 25); //display blue gem (light game)
     if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 50) { //if dist between sprite and blue gem < 50 
       gameMode = 3; //increase game mode
