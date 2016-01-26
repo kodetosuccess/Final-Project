@@ -43,7 +43,7 @@ void setup () {
   imageMode(CENTER); 
   textAlign(CENTER); 
   size(1200, 800); 
-  
+
   //intro screen stuff
   beglink = loadImage("beginning link.png"); 
 
@@ -332,10 +332,13 @@ void playbrickgame() {
     ball.vel.y = -ball.vel.y;    //put the cannonball in the opposite y direction
   }
 
-
-  if (ball.loc.y + ball.diam/2 >= height || ball.loc.y - ball.diam/2 <= 0) {    //if the cannonball touches the top of the screen 
-    ball.vel.y = -(ball.vel.y);    //put the cannonball in the opposite y direction
-    ball.loc.y -= 5; // this is to make sure the ball does not get entangled with the wall
+  if (ball.loc.y + ball.diam/2 >= height ) {
+    ball.vel.y = -ball.vel.y;    //put the cannonball in the opposite y direction
+    ball.loc.y -= 5;
+  }
+  if (ball.loc.y - ball.diam/2 <= 0) {    //if the cannonball touches the top of the screen 
+    ball.vel.y = -ball.vel.y;    //put the cannonball in the opposite y direction
+    ball.loc.y += 5; // this is to make sure the ball does not get entangled with the wall
   }
   if (ball.loc.x + ball.diam/2 >= width) {    //if the ball touches either side of the screen 
     ball.loc.x -= 5; // this is to make sure the ball does not get entangled with the wall
