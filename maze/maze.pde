@@ -121,7 +121,7 @@ void draw () {
     if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 50) { //if dist between sprite and blue gem < 50 
       gameMode = 3; //increase game mode
       for (int i = 0; i < 20; i++) { //start w/ 20 lights
-        lts.add(new Light(random(width), random(-height, 0))); //add new snowballs to array list
+        lts.add(new Light(random(width), random(-height, 0))); //add new lights to array list
       }
     }
 
@@ -213,9 +213,6 @@ void keyPressed() {
   if (keyCode == SHIFT) { //if shift key is pressed
     gameMode ++; //increase gamemode
     lts.clear(); //clear arraylist for lights
-    if (gameMode == 10) { //if end screen is shown and shift key is pressed
-      gameMode = 0; //returns to beginning screen
-    }
   }
 
 
