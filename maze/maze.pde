@@ -106,7 +106,7 @@ void setup () {
 
 void draw () {
   background(maze); 
-  println(sprite.loc); 
+  println(mouseX, mouseY); 
 
   if (gameMode == 0) { //if gamemode is 0
     beginningScreen(); //display intro screen
@@ -157,6 +157,7 @@ void draw () {
   if (gameMode == 3) { //play light catching game
     lightgame();
     sprite.loc.x = 60; //thisll make sure that it doesn't go back to gameMode == 2 and loop
+    sprite.loc.y = 560; 
   }
 
 
@@ -168,6 +169,7 @@ void draw () {
   if (gameMode == 5) { //play brick breaking game
     playbrickgame(); 
     sprite.loc.x = 100; //move sprite to new location so can continue maze
+    sprite.loc.y = 140;
   }
 
 
@@ -407,6 +409,7 @@ void jumpinggame() {
   }
   if (jumpl.w == 0) { //if health becomes 0
     gameMode = 1;
+    jumpl.w = 200; //restore health
   }
 }
 
