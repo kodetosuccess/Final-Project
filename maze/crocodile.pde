@@ -14,7 +14,7 @@ class Crocodile {  //new class for crocodiles
   }
 
   boolean isincontactwith(JLink jumpl) {  //if link/person is in contact with object
-    if (loc.dist(jumpl.loc) < 50) {
+    if (loc.dist(jumpl.loc) < 60) {
       return true;
     } else {
       return false;

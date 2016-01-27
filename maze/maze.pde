@@ -374,7 +374,8 @@ void jumpinggame() {
     Crocodile croc = crocodiles.get(i);
     croc.display();
     if (croc.isincontactwith(jumpl)) {   //if link/person touches crocodile, decrease hp
-      jumpl.decreasehp();
+      jumpl.decreasehp(); //his health will decrease
+      rockCheck = false; //he's not touching the rock so then he'll fall
     }
   }
 
@@ -419,10 +420,10 @@ void jumpinggame() {
     gameMode = 1; //returns to maze
   }
   if (jumpl.w == 0) { //if health becomes 0
-    gameMode = 1;
+    gameMode = 1; //return to maze
     jumpl.w = 200; //restore heatlh
     jumpl.c = color (59, 237, 0); //makes health bar green 
-    jumpl.health();
+    jumpl.health(); //new health functions so game can be played again
     jumpl.decreasehp(); 
     jumpl.loc = new PVector (80, 550); //this will reset link's location to the first rock each time
   }
