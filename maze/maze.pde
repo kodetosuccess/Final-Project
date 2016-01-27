@@ -117,7 +117,7 @@ void draw () {
   if (gameMode == 1) { //if game mode is 1
     sprite.display(); //display all those images
     image (blue, 20, 525, 25, 25); //display blue gem (light game)
-    if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 60) { //if dist between sprite and blue gem < 50 
+    if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 40) { //if dist between sprite and blue gem < 50 
       gameMode = 2; //increase game mode (light catching game start screen)
       for (int i = 0; i < 20; i++) { //start w/ 20 lights
         lts.add(new Light(random(width), random(-height, 0))); //add new lights to array list
@@ -143,7 +143,6 @@ void draw () {
       gameMode = 10; //game mode is 10
     }
   }
-
 
 
 
