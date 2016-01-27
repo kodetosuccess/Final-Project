@@ -118,7 +118,7 @@ void draw () {
     sprite.display(); //display all those images
     image (blue, 20, 525, 25, 25); //display blue gem (light game)
     if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 50) { //if dist between sprite and blue gem < 50 
-      gameMode = 3; //increase game mode
+      gameMode = 2; //increase game mode (light catching game start screen)
       for (int i = 0; i < 20; i++) { //start w/ 20 lights
         lts.add(new Light(random(width), random(-height, 0))); //add new lights to array list
       }
@@ -158,9 +158,7 @@ void draw () {
 
   if (gameMode == 3) { //play light catching game
     lightgame();
-
-    sprite.loc.x = 60; //thisll make sure that it doesn't go back to gameMode == 2 and loop
-    sprite.loc.y = 560;
+    sprite.loc = new PVector(60, 560);  //thisll make sure that it doesn't go back to gameMode == 2 and loop
   }
 
 
@@ -182,9 +180,19 @@ void draw () {
   }
 
   if (gameMode == 7) {
-    jumpinggame(); 
+    jumpinggame();
     sprite.loc.x = 600; //moves it so can continue maze
     sprite.loc.y = 275;
+    if (jumpl.w == 0) { //if health becomes 0
+      gameMode = 1; //return to maze
+      jumpl.w = 200; //restore heatlh
+      jumpl.c = color (59, 237, 0); //makes health bar green 
+      jumpl.health(); //new health functions so game can be played again
+      jumpl.decreasehp(); 
+      jumpl.loc = new PVector (80, 550); //this will reset link's location to the first rock each time
+      sprite.loc.x = 100; //move sprite to new location so can continue maze
+      sprite.loc.y = 140;
+    }
   }
 
   //swordfighting game stuff
@@ -417,14 +425,6 @@ void jumpinggame() {
   }
   if (jumpl.loc.x >= width) { //if link jumps across all the rocks
     gameMode = 1; //returns to maze
-  }
-  if (jumpl.w == 0) { //if health becomes 0
-    gameMode = 1; //return to maze
-    jumpl.w = 200; //restore heatlh
-    jumpl.c = color (59, 237, 0); //makes health bar green 
-    jumpl.health(); //new health functions so game can be played again
-    jumpl.decreasehp(); 
-    jumpl.loc = new PVector (80, 550); //this will reset link's location to the first rock each time
   }
 }
 
