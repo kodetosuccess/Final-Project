@@ -125,7 +125,7 @@ void draw () {
     }
 
     image(purple, 25, 150, 25, 25);  //display purple gem (brick breaking game)
-    if (dist(sprite.loc.x, sprite.loc.y, 25, 150)  <= 30) { //if dist between sprite and purple gem < 50
+    if (dist(sprite.loc.x, sprite.loc.y, 25, 150)  <= 20) { //if dist between sprite and purple gem < 50
       gameMode = 4; //game mode changes to 4, will display intro screen for brick breaking game
     }
 
