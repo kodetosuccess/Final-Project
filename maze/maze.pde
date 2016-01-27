@@ -147,6 +147,8 @@ void draw () {
 
 
 
+
+
   //stuff to display intro screen for individual games and make the games acutally happen
 
 
@@ -183,7 +185,7 @@ void draw () {
     jumpinggame();
     sprite.loc.x = 600; //moves it so can continue maze
     sprite.loc.y = 275;
-    
+
     if (jumpl.w == 0) { //if health becomes 0
       gameMode = 1; //return to maze
       jumpl.w = 200; //restore heatlh
@@ -404,6 +406,12 @@ void jumpinggame() {
     }
     jumpl.g.y = 0; //and he doesn't have gravity
   }
+
+  if (jumpl.loc.x <= 40) { //if link goes off the first rock (towards the left)
+    rockCheck = false; //then rockcheck is false
+  }
+  
+ 
 
   if (keyPressed) {
     if (keyCode == RIGHT && jumpl.vel.x < 3) {  //moves link to the right
