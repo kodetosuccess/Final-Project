@@ -117,7 +117,7 @@ void draw () {
   if (gameMode == 1) { //if game mode is 1
     sprite.display(); //display all those images
     image (blue, 20, 525, 25, 25); //display blue gem (light game)
-    if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 50) { //if dist between sprite and blue gem < 50 
+    if (dist(sprite.loc.x, sprite.loc.y, 20, 525)  <= 60) { //if dist between sprite and blue gem < 50 
       gameMode = 2; //increase game mode (light catching game start screen)
       for (int i = 0; i < 20; i++) { //start w/ 20 lights
         lts.add(new Light(random(width), random(-height, 0))); //add new lights to array list
@@ -125,18 +125,17 @@ void draw () {
     }
 
     image(purple, 25, 150, 25, 25);  //display purple gem (brick breaking game)
-    if (dist(sprite.loc.x, sprite.loc.y, 25, 150)  <= 50) { //if dist between sprite and purple gem < 50
+    if (dist(sprite.loc.x, sprite.loc.y, 25, 150)  <= 30) { //if dist between sprite and purple gem < 50
       gameMode = 4; //game mode changes to 4, will display intro screen for brick breaking game
     }
 
-
     image(red, 650, 225, 25, 25); //display red gem
-    if (dist(sprite.loc.x, sprite.loc.y, 650, 225)  <= 50) { //if dist between sprite and red gem < 50
+    if (dist(sprite.loc.x, sprite.loc.y, 650, 225)  <= 30) { //if dist between sprite and red gem < 50
       gameMode = 6; //game mode for jumping game start screen
     }
 
     image(green, 950, 550, 25, 25);
-    if (dist(sprite.loc.x, sprite.loc.y, 950, 550) <= 40) { //if dist between sprite and green gem < 50
+    if (dist(sprite.loc.x, sprite.loc.y, 950, 550) <= 30) { //if dist between sprite and green gem < 50
       gameMode = 8; //game mode to start sword fighting game
     }
 
@@ -160,7 +159,7 @@ void draw () {
 
   if (gameMode == 3) { //play light catching game
     lightgame();
-    sprite.loc = new PVector(60, 560);  //thisll make sure that it doesn't go back to gameMode == 2 and loop
+    sprite.loc = new PVector(60, 570);  //thisll make sure that it doesn't go back to gameMode == 2 and loop
   }
 
 
@@ -206,7 +205,7 @@ void draw () {
   if (gameMode == 9) {
     swordfighting(); //play swordfighting game
     sprite.loc.x = 990; 
-    sprite.loc.y = 590;
+    sprite.loc.y = 600;
   }
 
   //end screen
@@ -411,8 +410,6 @@ void jumpinggame() {
     rockCheck = false; //then rockcheck is false
   }
   
- 
-
   if (keyPressed) {
     if (keyCode == RIGHT && jumpl.vel.x < 3) {  //moves link to the right
       jumpl.vel.x += 0.5;
@@ -424,6 +421,7 @@ void jumpinggame() {
   if (rockCheck == false) { //if he's not touching rock
     jumpl.g.y = 0.2; //he's accelerating downwards
   }
+  
   jumpl.jump(); //make link jump
   jumpl.display(); //display link
   jumpl.health(); //link's hp

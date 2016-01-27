@@ -30,7 +30,7 @@ class Lantern { //declare new class for catching raindrops
   }
 
   boolean enoughlight() { //see weather or not light is big enough
-    if (x >= 50) {
+    if (x >= 200) {
       return true;
     } else {
       return false;
