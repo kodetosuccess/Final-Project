@@ -183,6 +183,7 @@ void draw () {
     jumpinggame();
     sprite.loc.x = 600; //moves it so can continue maze
     sprite.loc.y = 275;
+    
     if (jumpl.w == 0) { //if health becomes 0
       gameMode = 1; //return to maze
       jumpl.w = 200; //restore heatlh
