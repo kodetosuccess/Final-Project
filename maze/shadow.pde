@@ -54,7 +54,7 @@ class Shadow { //declare new class for shadow
   }
 
   void decreasehealth() { //decrease health
-    w -= 1; //decrease health
+    w -= 2; //decrease health
     if (w <= 100) { //if health is < 10
       c = color (255, 34, 0); //health bar tunrs red
     }

@@ -106,13 +106,12 @@ void setup () {
 
 void draw () {
   background(maze); 
-  println(mouseX, mouseY); 
+  println(gameMode); 
 
   if (gameMode == 0) { //if gamemode is 0
+    sprite.loc = new PVector (50, 700); //sprite is at beginning of maze
     beginningScreen(); //display intro screen
-    sprite.loc = new PVector (50, 700);
   }
-
 
 
   if (gameMode == 1) { //if game mode is 1
@@ -202,6 +201,10 @@ void draw () {
   //end screen
   if (gameMode == 10) {
     endScreen();
+  }
+
+  if (gameMode == 11) { //if person presses shift after beating the game
+    gameMode = 0; //game will restart
   }
 }
 
