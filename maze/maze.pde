@@ -404,7 +404,6 @@ void jumpinggame() {
       jumpl.vel.x -= 0.5;
     }
   }
-
   if (rockCheck == false) { //if he's not touching rock
     jumpl.g.y = 0.2; //he's accelerating downwards
   }
