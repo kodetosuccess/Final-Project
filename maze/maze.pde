@@ -414,7 +414,7 @@ void jumpinggame() {
 
   if (jumpl.loc.y >= height ) { //if link falls off screen
     jumpl.returntoscreen(); //returns to first rock
-    jumpl.w -= 10; //hp - 10
+    jumpl.w -= 5; //hp - 10
   }
   if (jumpl.loc.x >= width) { //if link jumps across all the rocks
     gameMode = 1; //returns to maze

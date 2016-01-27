@@ -49,8 +49,8 @@ class JLink {
   }
 
   void decreasehp() {
-    w -= 5; //decrease health
-    if (w <= 100) { //if health is < 10
+    w -= 2; //decrease health
+    if (w <= 50) { //if health is < 100
       c = color (255, 34, 0); //health bar tunrs red
       if (w <= 0) { //if there's no more health
         w = 0; //stop decreasing health
