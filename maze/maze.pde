@@ -212,10 +212,6 @@ void draw () {
   if (gameMode == 10) {
     endScreen();
   }
-
-  if (gameMode == 11) { //if person presses shift after beating the game
-    gameMode = 0; //game will restart
-  }
 }
 
 
@@ -226,6 +222,9 @@ void keyPressed() {
   if (keyCode == SHIFT) { //if shift key is pressed
     gameMode ++; //increase gamemode
     lts.clear(); //clear arraylist for lights
+    if (gameMode == 11) { //if person presses shift after beating the game
+      gameMode = 0; //game will restart
+    }
   }
 
 
@@ -409,7 +408,7 @@ void jumpinggame() {
   if (jumpl.loc.x <= 40) { //if link goes off the first rock (towards the left)
     rockCheck = false; //then rockcheck is false
   }
-  
+
   if (keyPressed) {
     if (keyCode == RIGHT && jumpl.vel.x < 3) {  //moves link to the right
       jumpl.vel.x += 0.5;
@@ -421,7 +420,7 @@ void jumpinggame() {
   if (rockCheck == false) { //if he's not touching rock
     jumpl.g.y = 0.2; //he's accelerating downwards
   }
-  
+
   jumpl.jump(); //make link jump
   jumpl.display(); //display link
   jumpl.health(); //link's hp
