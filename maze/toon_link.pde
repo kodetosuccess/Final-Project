@@ -57,18 +57,18 @@ class Link { //declare new class for toon link
 
 
   void backonscreen() { //makes sure that they don't completely disappear off screen
-    if (loc.x - 99 <= 0 ) { //if link goes to the left off screen
-      loc.x = 100; //his new location is 100
-    } 
-    if (loc.x + 99 >= width) { //if link goes to the screen on the right
-      loc.x = 1100; //his new location is 1100;
+    if (loc.x - 99 <= -200 ) { //if link goes to the left off screen
+      loc.x += 10; //add so he wont go completely off
+    }
+    if (loc.x + 99 >= width + 200) { //if link goes to the screen on the right
+      loc.x -= 10; //subtract so doesnt go completely off
     }
 
-    if (loc.y - 50 <= 0 ) { //if link goes off top of screen
-      loc.y = 125; //reset height so he wont
+    if (loc.y - 50 <= -100 ) { //if link goes off top of screen
+      loc.y += 10; //reset height so he wont
     }
-    if (loc.y + 50 >= height) { //if link goes off bottom of screen
-      loc.y = 700; //reset height so that he wont
+    if (loc.y + 50 >= height + 100) { //if link goes off bottom of screen
+      loc.y -= 10; //reset height so that he wont
     }
   }
 

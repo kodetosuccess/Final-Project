@@ -106,7 +106,7 @@ void setup () {
 
 void draw () {
   background(maze); 
-  println(gameMode); 
+  println(mouseX, mouseY); 
 
   if (gameMode == 0) { //if gamemode is 0
     sprite.loc = new PVector (50, 700); //sprite is at beginning of maze
@@ -130,12 +130,12 @@ void draw () {
     }
 
     image(red, 650, 225, 25, 25); //display red gem
-    if (dist(sprite.loc.x, sprite.loc.y, 650, 225)  <= 30) { //if dist between sprite and red gem < 50
+    if (dist(sprite.loc.x, sprite.loc.y, 650, 225)  <= 40) { //if dist between sprite and red gem < 50
       gameMode = 6; //game mode for jumping game start screen
     }
 
-    image(green, 950, 550, 25, 25);
-    if (dist(sprite.loc.x, sprite.loc.y, 950, 550) <= 30) { //if dist between sprite and green gem < 50
+    image(green, 1030, 570, 25, 25);
+    if (dist(sprite.loc.x, sprite.loc.y, 1030, 570) <= 100) { //if dist between sprite and green gem < 50
       gameMode = 8; //game mode to start sword fighting game
     }
 
@@ -203,8 +203,8 @@ void draw () {
 
   if (gameMode == 9) {
     swordfighting(); //play swordfighting game
-    sprite.loc.x = 990; 
-    sprite.loc.y = 600;
+    sprite.loc.x = 1060; 
+    sprite.loc.y = 680;
   }
 
   //end screen
@@ -418,6 +418,10 @@ void jumpinggame() {
   }
   if (rockCheck == false) { //if he's not touching rock
     jumpl.g.y = 0.2; //he's accelerating downwards
+  }
+
+  if (jumpl.loc.y > 650) { //if link is below rock
+    rockCheck = false; // then he can't jump again (removes that glitch)
   }
 
   jumpl.jump(); //make link jump
